@@ -1,0 +1,120 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "05C-gY-cfs"; */
+"05C-gY-cfs.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Stop"; ObjectID = "1NJ-4J-c1M"; */
+"1NJ-4J-c1M.normalTitle" = "Stop";
+
+/* Class = "UIButton"; normalTitle = "Photo"; ObjectID = "1Rg-wM-bUa"; */
+"1Rg-wM-bUa.normalTitle" = "Photo";
+
+/* Class = "UIButton"; normalTitle = "→"; ObjectID = "2o0-5F-cZL"; */
+"2o0-5F-cZL.normalTitle" = "→";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2wN-wt-o5z"; */
+"2wN-wt-o5z.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "{JSON is ready}"; ObjectID = "6g5-B3-kTL"; */
+"6g5-B3-kTL.normalTitle" = "{JSON is ready}";
+
+/* Class = "UILabel"; text = "▶︎"; ObjectID = "A1h-pw-cHR"; */
+"A1h-pw-cHR.text" = "▶︎";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BRK-cP-kqa"; */
+"BRK-cP-kqa.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BYX-Cm-DJY"; */
+"BYX-Cm-DJY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DrO-zg-1HF"; */
+"DrO-zg-1HF.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DxU-NA-oMW"; */
+"DxU-NA-oMW.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "↩︎"; ObjectID = "G2k-Tv-9p2"; */
+"G2k-Tv-9p2.normalTitle" = "↩︎";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HTl-FF-l9k"; */
+"HTl-FF-l9k.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "↩︎"; ObjectID = "HcL-Gk-bCE"; */
+"HcL-Gk-bCE.normalTitle" = "↩︎";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "JBl-U3-Mb4"; */
+"JBl-U3-Mb4.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "JLC-v0-SD1"; */
+"JLC-v0-SD1.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UITextField"; placeholder = "ready to search"; ObjectID = "MIK-cq-RSg"; */
+"MIK-cq-RSg.placeholder" = "ready to search";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "Nlt-dj-5PK"; */
+"Nlt-dj-5PK.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UILabel"; text = "Photo by Heather Ford on Unsplash"; ObjectID = "P9h-EY-itq"; */
+"P9h-EY-itq.text" = "Photo by Heather Ford on Unsplash";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QsV-9g-OGx"; */
+"QsV-9g-OGx.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "←"; ObjectID = "RCe-EO-IbQ"; */
+"RCe-EO-IbQ.normalTitle" = "←";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ssg-us-ABn"; */
+"Ssg-us-ABn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "TiG-oX-jVm"; */
+"TiG-oX-jVm.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UIButton"; normalTitle = "JSON"; ObjectID = "WED-tg-jII"; */
+"WED-tg-jII.normalTitle" = "JSON";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Xbp-MX-NEG"; */
+"Xbp-MX-NEG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "anB-Qf-YFR"; */
+"anB-Qf-YFR.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UIButton"; normalTitle = "↩︎"; ObjectID = "asF-Vq-Cwj"; */
+"asF-Vq-Cwj.normalTitle" = "↩︎";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cTz-sY-IQ2"; */
+"cTz-sY-IQ2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "de1-jw-yMf"; */
+"de1-jw-yMf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Play"; ObjectID = "epo-ed-hYt"; */
+"epo-ed-hYt.normalTitle" = "Play";
+
+/* Class = "UIButton"; normalTitle = "→"; ObjectID = "fcF-N5-6fl"; */
+"fcF-N5-6fl.normalTitle" = "→";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "hBN-h1-UNY"; */
+"hBN-h1-UNY.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "j0k-kA-iyT"; */
+"j0k-kA-iyT.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Record"; ObjectID = "ku7-bv-9aA"; */
+"ku7-bv-9aA.normalTitle" = "Record";
+
+/* Class = "UILabel"; text = "Hi how are you? Hope you are fine."; ObjectID = "l13-rh-RVf"; */
+"l13-rh-RVf.text" = "Hi how are you? Hope you are fine.";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "mTf-TE-PxD"; */
+"mTf-TE-PxD.normalTitle" = "Delete";
+
+/* Class = "UIButton"; normalTitle = "Top"; ObjectID = "uhO-6p-Z1N"; */
+"uhO-6p-Z1N.normalTitle" = "Top";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "v6u-N9-Mmn"; */
+"v6u-N9-Mmn.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "x4B-2F-tS4"; */
+"x4B-2F-tS4.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "←"; ObjectID = "zIB-Yn-UKq"; */
+"zIB-Yn-UKq.normalTitle" = "←";
