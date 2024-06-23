@@ -29,6 +29,17 @@ class TableViewCellLS: UITableViewCell {
     @IBOutlet weak var M6: UIMarginLabel!
     @IBOutlet weak var M7: UIMarginLabel!
     
+    @IBOutlet weak var V1: UIView!
+    @IBOutlet weak var V2: UIView!
+    @IBOutlet weak var V3: UIView!
+    @IBOutlet weak var V4: UIView!
+    @IBOutlet weak var V5: UIView!
+    @IBOutlet weak var V6: UIView!
+    @IBOutlet weak var V7: UIView!
+    
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

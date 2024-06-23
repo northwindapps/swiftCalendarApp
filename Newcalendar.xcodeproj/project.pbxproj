@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BD254362C281B4E003F38DE /* PencilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD254352C281B4E003F38DE /* PencilController.swift */; };
 		3C1941382104DAFC00C07555 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1941372104DAFC00C07555 /* AudioViewController.swift */; };
 		3C1D954F2103093400021ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1D954E2103093400021ADF /* AppDelegate.swift */; };
 		3C1D95512103093400021ADF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1D95502103093400021ADF /* DataController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BD254352C281B4E003F38DE /* PencilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilController.swift; sourceTree = "<group>"; };
 		3C1941372104DAFC00C07555 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		3C1D954B2103093300021ADF /* N-Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N-Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C1D954E2103093400021ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				3C1D957F21030C8900021ADF /* TableViewCell.swift */,
 				6A16486F23A49D5C00FF2EA9 /* FileHandler.swift */,
 				6AC9A27B23ACF53400B80C23 /* Calendar.swift */,
+				2BD254352C281B4E003F38DE /* PencilController.swift */,
 				3C1D95502103093400021ADF /* DataController.swift */,
 				3C1D95522103093400021ADF /* Main.storyboard */,
 				6A53960623ABA542009BE0A1 /* TableViewCellLS.swift */,
@@ -372,6 +375,7 @@
 				3C1D954F2103093400021ADF /* AppDelegate.swift in Sources */,
 				6A53960723ABA542009BE0A1 /* TableViewCellLS.swift in Sources */,
 				3C1941382104DAFC00C07555 /* AudioViewController.swift in Sources */,
+				2BD254362C281B4E003F38DE /* PencilController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +504,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -560,7 +564,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -579,7 +583,7 @@
 				CURRENT_PROJECT_VERSION = 1.2.5;
 				DEVELOPMENT_TEAM = 637JS3JU7M;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,7 +676,7 @@
 				CURRENT_PROJECT_VERSION = 1.2.5;
 				DEVELOPMENT_TEAM = 637JS3JU7M;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

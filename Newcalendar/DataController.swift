@@ -1198,7 +1198,7 @@ class DataViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func GoTop(_ sender: Any) {
         // Destination
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "TopView") as! MainViewController
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "mainview") as! MainViewController
         self.present(resultViewController, animated:true, completion:nil)
     }
     @objc func tappedcell(_ sender : UITapGestureRecognizer ){

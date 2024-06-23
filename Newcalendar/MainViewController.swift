@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import PencilKit
 
 
 
@@ -72,10 +73,11 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var tableviewHeightSum = 0.0
     
     //
-    enum InputType {
-        case handwriting
-        case keybord
+    enum InputType:Int {
+        case handwriting = 0
+        case keybord = 1
     }
+    
     
     var input_type = 0
     
@@ -159,13 +161,23 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.M7.layer.borderColor = UIColor.systemGray.cgColor
 
         
-        cell.S1.layer.zPosition = 2
-        cell.S2.layer.zPosition = 2
-        cell.S3.layer.zPosition = 2
-        cell.S4.layer.zPosition = 2
-        cell.S5.layer.zPosition = 2
-        cell.S6.layer.zPosition = 2
-        cell.S7.layer.zPosition = 2
+        cell.V1.layer.zPosition = 2
+        cell.V2.layer.zPosition = 2
+        cell.V3.layer.zPosition = 2
+        cell.V4.layer.zPosition = 2
+        cell.V5.layer.zPosition = 2
+        cell.V6.layer.zPosition = 2
+        cell.V7.layer.zPosition = 2
+
+        
+        
+        cell.S1.layer.zPosition = 3
+        cell.S2.layer.zPosition = 3
+        cell.S3.layer.zPosition = 3
+        cell.S4.layer.zPosition = 3
+        cell.S5.layer.zPosition = 3
+        cell.S6.layer.zPosition = 3
+        cell.S7.layer.zPosition = 3
 
         
         cell.S1.font = UIFont.systemFont(ofSize: 12.0)
@@ -191,6 +203,50 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.S6.text = col5[indexPath.row]
         cell.S7.text = col6[indexPath.row]
         
+        tableviewHeightSum += Double(cell.bounds.height)
+        tableviewHeightAry.append(Int(tableviewHeightSum))
+        
+        cell.S1.backgroundColor = UIColor.clear
+        cell.S1.textColor = UIColor.red
+        cell.S1.layer.cornerRadius = 0.0
+        cell.M1.layer.cornerRadius = 0.0
+        cell.M1.backgroundColor = UIColor.white
+        
+        cell.S2.backgroundColor = UIColor.clear
+        cell.S2.textColor = UIColor.black
+        cell.S2.layer.cornerRadius = 0.0
+        cell.M2.layer.cornerRadius = 0.0
+        cell.M2.backgroundColor = UIColor.white
+        
+        cell.S3.backgroundColor = UIColor.clear
+        cell.S3.textColor = UIColor.black
+        cell.S3.layer.cornerRadius = 0.0
+        cell.M3.layer.cornerRadius = 0.0
+        cell.M3.backgroundColor = UIColor.white
+        
+        cell.S4.backgroundColor = UIColor.clear
+        cell.S4.textColor = UIColor.black
+        cell.S4.layer.cornerRadius = 0.0
+        cell.M4.layer.cornerRadius = 0.0
+        cell.M4.backgroundColor = UIColor.white
+        
+        cell.S5.backgroundColor = UIColor.clear
+        cell.S5.textColor = UIColor.black
+        cell.S5.layer.cornerRadius = 0.0
+        cell.M5.layer.cornerRadius = 0.0
+        cell.M5.backgroundColor = UIColor.white
+        
+        cell.S6.backgroundColor = UIColor.clear
+        cell.S6.textColor = UIColor.black
+        cell.S6.layer.cornerRadius = 0.0
+        cell.M6.layer.cornerRadius = 0.0
+        cell.M6.backgroundColor = UIColor.white
+        
+        cell.S7.backgroundColor = UIColor.clear
+        cell.S7.textColor = UIColor.black
+        cell.S7.layer.cornerRadius = 0.0
+        cell.M7.layer.cornerRadius = 0.0
+        cell.M7.backgroundColor = UIColor.white
         
         
         if ym0[indexPath.row] == today{
@@ -201,13 +257,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S1.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M1.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
-            
-        }else {
-            cell.S1.backgroundColor = UIColor.clear
-            cell.S1.textColor = UIColor.red
-            cell.S1.layer.cornerRadius = 0.0
-            cell.M1.layer.cornerRadius = 0.0
-            cell.M1.backgroundColor = UIColor.white
             
         }
         
@@ -220,13 +269,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.M2.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
-        }else {
-            cell.S2.backgroundColor = UIColor.clear
-            cell.S2.textColor = UIColor.black
-            cell.S2.layer.cornerRadius = 0.0
-            cell.M2.layer.cornerRadius = 0.0
-            cell.M2.backgroundColor = UIColor.white
-            
         }
         
         if ym2[indexPath.row] == today{
@@ -237,13 +279,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S3.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M3.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
-            
-        }else {
-            cell.S3.backgroundColor = UIColor.clear
-            cell.S3.textColor = UIColor.black
-            cell.S3.layer.cornerRadius = 0.0
-            cell.M3.layer.cornerRadius = 0.0
-            cell.M3.backgroundColor = UIColor.white
             
         }
         
@@ -256,13 +291,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.M4.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
-        }else {
-            cell.S4.backgroundColor = UIColor.clear
-            cell.S4.textColor = UIColor.black
-            cell.S4.layer.cornerRadius = 0.0
-            cell.M4.layer.cornerRadius = 0.0
-            cell.M4.backgroundColor = UIColor.white
-            
         }
         
         if ym4[indexPath.row] == today{
@@ -272,15 +300,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.M5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
             cell.S5.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M5.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
-            
-        }else {
-            cell.S5.backgroundColor = UIColor.clear
-            cell.S5.textColor = UIColor.black
-            cell.S5.layer.cornerRadius = 0.0
-            cell.M5.layer.cornerRadius = 0.0
-            cell.M5.backgroundColor = UIColor.white
-            
         }
         
         if ym5[indexPath.row] == today{
@@ -290,15 +309,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.M6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
             cell.S6.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M6.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
-            
-        }else {
-            cell.S6.backgroundColor = UIColor.clear
-            cell.S6.textColor = UIColor.black
-            cell.S6.layer.cornerRadius = 0.0
-            cell.M6.layer.cornerRadius = 0.0
-            cell.M6.backgroundColor = UIColor.white
-            
         }
         
         if ym6[indexPath.row] == today{
@@ -308,19 +318,15 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.M7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
             cell.S7.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M7.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
-            
-        }else {
-            cell.S7.backgroundColor = UIColor.clear
-            cell.S7.textColor = UIColor.black
-            cell.S7.layer.cornerRadius = 0.0
-            cell.M7.layer.cornerRadius = 0.0
-            cell.M7.backgroundColor = UIColor.white
-            
         }
         
+        cell.L1.text = ""
+        cell.L1.layer.zPosition = 0
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowOpacity=0.0
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         
-        
+        //yyyy Sep, Apr, Oct...
         if col0[indexPath.row].first == "?"{
             
             cell.L1.text = col0[indexPath.row].replacingOccurrences(of: "?", with: "")
@@ -374,108 +380,157 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.layer.shadowOpacity=0.7
             cell.layer.shadowOffset = CGSize(width: 1, height: 1)
             cell.layer.backgroundColor = UIColor.systemBlue.cgColor
-            
+            cell.L1.layer.zPosition = 4
            
-        }else{
-            cell.L1.text = ""
-            cell.L1.layer.zPosition = 0
-            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-            cell.layer.shadowOpacity=0.0
-            cell.layer.backgroundColor = UIColor.clear.cgColor
         }
         
-        
-        
-        
-        
+
         
         //Main Content
-        if text_location.contains(ym0[indexPath.row])  {
+        cell.M1.text = ""
+        cell.M2.text = ""
+        cell.M3.text = ""
+        cell.M4.text = ""
+        cell.M5.text = ""
+        cell.M6.text = ""
+        cell.M7.text = ""
+        
+        
+        switch input_type {
+        case InputType.handwriting.rawValue:
+            let ymd = ym0[indexPath.row].components(separatedBy: "/")
+            if  ymd.count != 3{
+                print(ym0[indexPath.row].replacingOccurrences(of: "/", with: ""))
+                break
+            }
+            // Create PKCanvasView
+            var canvasView = PKCanvasView(frame: CGRect(x: 0, y: 0, width: cell.V1.frame.width, height: cell.V1.frame.height))
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V1.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
+            }
             
-            let indexOfA = text_location.firstIndex(of: ym0[indexPath.row])
-            cell.M1.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym0[indexPath.row])  {
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V2.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
+            }
             
-            let indexOfA = text_locationTime.firstIndex(of: ym0[indexPath.row])
-            cell.M1.text = text_content[indexOfA!]
-        }else{
-            cell.M1.text = ""
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V3.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
+            }
+            
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V4.addSubview(canvasView)
+            }
+            
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V5.addSubview(canvasView)
+            }
+            
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V6.addSubview(canvasView)
+            }
+            
+            if let loadedDrawingData = loadDrawingFromFile(filename: ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                // Use the loaded drawing data
+                print("Drawing data loaded: \(loadedDrawingData)")
+                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
+                cell.V7.addSubview(canvasView)
+            }
+            
+            
+            
+        case InputType.keybord.rawValue:
+            if text_location.contains(ym0[indexPath.row]) || text_locationTime.contains(ym0[indexPath.row]) {
+                
+                let indexOfA = text_location.firstIndex(of: ym0[indexPath.row])
+                cell.M1.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym1[indexPath.row]) || text_locationTime.contains(ym1[indexPath.row]) {
+                
+                let indexOfA = text_location.firstIndex(of: ym1[indexPath.row])
+                cell.M2.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym2[indexPath.row]) || text_locationTime.contains(ym2[indexPath.row]) {
+                
+                let indexOfA = text_location.firstIndex(of: ym2[indexPath.row])
+                cell.M3.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym3[indexPath.row]) || text_locationTime.contains(ym3[indexPath.row])  {
+                
+                let indexOfA = text_location.firstIndex(of: ym3[indexPath.row])
+                cell.M4.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym4[indexPath.row]) || text_locationTime.contains(ym4[indexPath.row])  {
+                
+                let indexOfA = text_location.firstIndex(of: ym4[indexPath.row])
+                cell.M5.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym5[indexPath.row]) || text_locationTime.contains(ym5[indexPath.row]) {
+                
+                let indexOfA = text_location.firstIndex(of: ym5[indexPath.row])
+                cell.M6.text = text_content[indexOfA!]
+            }
+            
+            if text_location.contains(ym6[indexPath.row]) || text_locationTime.contains(ym6[indexPath.row])  {
+                let indexOfA = text_location.firstIndex(of: ym6[indexPath.row])
+                cell.M7.text = text_content[indexOfA!]
+            }
+        default:
+            break
         }
         
-        if text_location.contains(ym1[indexPath.row])  {
-            
-            let indexOfA = text_location.firstIndex(of: ym1[indexPath.row])
-            cell.M2.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym1[indexPath.row])  {
-            
-            let indexOfA = text_locationTime.firstIndex(of: ym1[indexPath.row])
-            cell.M2.text = text_content[indexOfA!]
-        }else{
-            cell.M2.text = ""
-        }
-        
-        if text_location.contains(ym2[indexPath.row])  {
-            
-            let indexOfA = text_location.firstIndex(of: ym2[indexPath.row])
-            cell.M3.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym2[indexPath.row])  {
-            
-            let indexOfA = text_locationTime.firstIndex(of: ym2[indexPath.row])
-            cell.M3.text = text_content[indexOfA!]
-        }else{
-            cell.M3.text = ""
-        }
-        
-        if text_location.contains(ym3[indexPath.row])  {
-            
-            let indexOfA = text_location.firstIndex(of: ym3[indexPath.row])
-            cell.M4.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym3[indexPath.row])  {
-            
-            let indexOfA = text_locationTime.firstIndex(of: ym3[indexPath.row])
-            cell.M4.text = text_content[indexOfA!]
-        }else{
-            cell.M4.text = ""
-        }
-        
-        if text_location.contains(ym4[indexPath.row])  {
-            
-            let indexOfA = text_location.firstIndex(of: ym4[indexPath.row])
-            cell.M5.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym4[indexPath.row])  {
-            
-            let indexOfA = text_locationTime.firstIndex(of: ym4[indexPath.row])
-            cell.M5.text = text_content[indexOfA!]
-        }else{
-            cell.M5.text = ""
-        }
-        
-        if text_location.contains(ym5[indexPath.row])  {
-            
-            let indexOfA = text_location.firstIndex(of: ym5[indexPath.row])
-            cell.M6.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym5[indexPath.row])  {
-            
-            let indexOfA = text_locationTime.firstIndex(of: ym5[indexPath.row])
-            cell.M6.text = text_content[indexOfA!]
-        }else{
-            cell.M6.text = ""
-        }
-        
-        if text_location.contains(ym6[indexPath.row])  {
-            let indexOfA = text_location.firstIndex(of: ym6[indexPath.row])
-            cell.M7.text = text_content[indexOfA!]
-        }else if text_locationTime.contains(ym6[indexPath.row])  {
-            let indexOfA = text_locationTime.firstIndex(of: ym6[indexPath.row])
-            cell.M7.text = text_content[indexOfA!]
-        }else{
-            cell.M7.text = ""
-        }
-        
-        tableviewHeightSum += Double(cell.bounds.height)
-        tableviewHeightAry.append(Int(tableviewHeightSum))
         
         return cell
+    }
+    
+    
+    func scaleDrawingToFitView(drawing: PKDrawing, canvasView:PKCanvasView) -> PKCanvasView{
+        // Get the size of the drawing
+        let drawingBounds = drawing.bounds
+        let drawingSize = drawingBounds.size
+        
+        // Get the size of the canvas view
+        let canvasSize = canvasView.bounds.size
+        
+        // Calculate the scale factors
+        let scaleX = canvasSize.width / drawingSize.width
+        let scaleY = canvasSize.height / drawingSize.height
+        
+        // Choose the smaller scale factor to fit the drawing within the canvas
+        let scaleFactor = min(scaleX, scaleY)
+        
+        // Create a transform to scale the drawing
+        let transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
+        
+        // Apply the transform to the drawing
+        let scaledDrawing = drawing.transformed(using: transform)
+        
+        // Set the scaled drawing to the canvas view
+        canvasView.drawing = scaledDrawing
+        
+        return canvasView
     }
     
     
@@ -621,11 +676,10 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         sat.addTarget(self, action: #selector(self.bTT), for: .touchUpInside)
         
         homebutton.addTarget(self, action: #selector(scrollToRow), for: UIControl.Event.touchUpInside)
-        //
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MainViewController.scrollToRow), userInfo: nil, repeats: false)
         
-        
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.scrollToRow()
+            }
     }
     
     
@@ -748,37 +802,37 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if cell.M1.frame.contains(pointInCell){
             //switch handwriting or text
             tappedcol = 0
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym0)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym0)
         }
         
         if cell.M2.frame.contains(pointInCell){
             tappedcol = 1
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym1)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym1)
         }
         
         if cell.M3.frame.contains(pointInCell){
             tappedcol = 2
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym2)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym2)
         }
         
         if cell.M4.frame.contains(pointInCell){
             tappedcol = 3
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym3)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym3)
         }
         
         if cell.M5.frame.contains(pointInCell){
             tappedcol = 4
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym4)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym4)
         }
         
         if cell.M6.frame.contains(pointInCell){
             tappedcol = 5
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym5)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym5)
         }
         
         if cell.M7.frame.contains(pointInCell){
             tappedcol = 6
-            handleInputType(inputType: 1,IP: indexPath!,pointInCell: pointInCell,ym: ym6)
+            handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym6)
         }
     }
     
@@ -848,223 +902,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
         terminate(sender: sender)
-    }
-    
-    @objc func moveedit1(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym0[id]) != nil {
-            resultViewController.receivedstr = ym0[id]
-            let ArrayyyyMMDD = ym0[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit2(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym1[id]) != nil {
-            resultViewController.receivedstr = ym1[id]
-            let ArrayyyyMMDD = ym1[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit3(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym2[id]) != nil {
-            resultViewController.receivedstr = ym2[id]
-            let ArrayyyyMMDD = ym2[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit4(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym3[id]) != nil {
-            resultViewController.receivedstr = ym3[id]
-            let ArrayyyyMMDD = ym3[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit5(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym4[id]) != nil {
-            resultViewController.receivedstr = ym4[id]
-            let ArrayyyyMMDD = ym4[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit6(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym5[id]) != nil {
-            resultViewController.receivedstr = ym5[id]
-            let ArrayyyyMMDD = ym5[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
-    }
-    
-    @objc func moveedit7(){
-        let id = self.tappedid
-        // Destination
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "Eview") as! EditViewController
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy/MM/dd"
-        if dateFormatterGet.date(from: ym6[id]) != nil {
-            resultViewController.receivedstr = ym6[id]
-            let ArrayyyyMMDD = ym6[id].components(separatedBy: "/")
-            resultViewController.receivedyear = Int(ArrayyyyMMDD[0])
-            
-            //https://stackoverflow.com/questions/49472570/in-swift-can-you-split-a-string-by-another-string-not-just-a-character
-            
-            
-            resultViewController.returnMM = Int(ArrayyyyMMDD[1])//2019/11 break into 2019 11
-            resultViewController.returnDD = Int(ArrayyyyMMDD[2])
-            
-            resultViewController.table_type = 0
-            resultViewController.useryear = Int(ArrayyyyMMDD[0])!
-            resultViewController.indexofTable = (id)
-            resultViewController.daysArray = DDArray
-            resultViewController.monthsArray = MMArray
-            resultViewController.text_content = text_content
-            resultViewController.text_location = text_location
-            
-            self.present(resultViewController, animated:true, completion:nil)
-        }
     }
     
     @objc func getToday()->String{
@@ -1203,14 +1040,35 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let jsoned = export.jsonExport(source: dict)
         if JSONSerialization.isValidJSONObject(jsoned) {
             //print(jsoned) OK!
+            let temp = Export()
+            temp.saveJsonFile(source: jsoned as! Dictionary<String, String>)
+            // Done
         }
         
-        let temp = Export()
-        temp.saveJsonFile(source: jsoned as! Dictionary<String, String>)
-        // Done
+        
         
         myTable.reloadData()
     }
+    
+    func loadDrawingFromFile(filename:String) -> Data? {
+        // Get the path to the Documents directory
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // Create a file URL with the same file name and extension
+        let filename = filename + ".dat"
+        let fileURL = documentsDirectory.appendingPathComponent(filename)
+        
+        do {
+            // Read the data from the file
+            let drawingData = try Data(contentsOf: fileURL)
+            print("Drawing data loaded successfully from \(fileURL.path)")
+            return drawingData
+        } catch {
+            print("Error loading drawing data: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
 
     func handleInputType(inputType: Int, IP:IndexPath, pointInCell:CGPoint,ym:[String]) {
         // Convert integer inputType to the appropriate InputType enum value and handle each case directly
@@ -1218,8 +1076,13 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         case 0:
             // Handle handwriting input
             print("Handling handwriting input")
-            // Add further logic for handwriting input here
-            
+            let id = ym[IP.row].replacingOccurrences(of: "/", with: "")
+            if id.count > 0{
+                let target = storyboard!.instantiateViewController(withIdentifier: "pencilview") as! PencilController
+                target.id = id
+                target.modalPresentationStyle = .fullScreen
+                present(target, animated: true, completion: nil)
+            }
         case 1:
             // Handle text input
             print("Handling text input")
@@ -1276,6 +1139,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.present(resultViewController, animated:true, completion:nil)
     }
 }
+
 extension UIView {
     func roundCorners(corners:UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
