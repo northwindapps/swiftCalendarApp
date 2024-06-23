@@ -49,9 +49,9 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            resetButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            resetButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
-        
+
         // Add reset strokes button
         let resetStrokeButton = UIButton(type: .system)
         resetStrokeButton.setTitle("Reset Strokes", for: .normal)
@@ -60,8 +60,9 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         resetStrokeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             resetStrokeButton.trailingAnchor.constraint(equalTo: resetButton.leadingAnchor, constant: -20),
-            resetStrokeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            resetStrokeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
+
         
         
         // Load drawing if available
