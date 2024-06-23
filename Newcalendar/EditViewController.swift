@@ -7,19 +7,19 @@
 //
 
 import UIKit
-import GoogleMobileAds
+//import GoogleMobileAds
 import AVFoundation
 import AppTrackingTransparency
 import AdSupport
 
-class EditViewController: UIViewController,UITextViewDelegate,GADBannerViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVAudioRecorderDelegate {
+class EditViewController: UIViewController,UITextViewDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVAudioRecorderDelegate {
     
     @IBOutlet weak var imagewindow: UIImageView!
     
     @IBOutlet weak var memo: UILabel!
     @IBOutlet weak var Playbutton: UIButton!
     
-    @IBOutlet weak var bannerview: GADBannerView!
+//    @IBOutlet weak var bannerview: GADBannerView!
     
     
     @IBOutlet weak var nextbutton: UIButton!
@@ -156,15 +156,15 @@ class EditViewController: UIViewController,UITextViewDelegate,GADBannerViewDeleg
         
         
         
-        bannerview.isHidden = true
-        bannerview.delegate = self
-        bannerview.adUnitID = "ca-app-pub-5284441033171047/2532822513"
-        bannerview.rootViewController = self
-        
-        
-        bannerview.layer.borderWidth = 1
-        bannerview.layer.borderColor = UIColor.blue.cgColor
-        requestIDFA()
+//        bannerview.isHidden = true
+//        bannerview.delegate = self
+//        bannerview.adUnitID = "ca-app-pub-5284441033171047/2532822513"
+//        bannerview.rootViewController = self
+//        
+//        
+//        bannerview.layer.borderWidth = 1
+//        bannerview.layer.borderColor = UIColor.blue.cgColor
+//        requestIDFA()
         
         check_if_thefile_exsits()
         
@@ -192,28 +192,28 @@ class EditViewController: UIViewController,UITextViewDelegate,GADBannerViewDeleg
         entryview.becomeFirstResponder()
     }
     
-    func requestIDFA() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                // Tracking authorization completed. Start loading ads here.
-                // loadAd()
-                self.bannerview.load(GADRequest())
-            })
-        } else {
-            // Fallback on earlier versions
-            self.bannerview.load(GADRequest())
-        }
-    }
- 
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerview.isHidden = false
-    }
-    
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        bannerview.isHidden = true
-    }
-    
+//    func requestIDFA() {
+//        if #available(iOS 14, *) {
+//            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+//                // Tracking authorization completed. Start loading ads here.
+//                // loadAd()
+//                self.bannerview.load(GADRequest())
+//            })
+//        } else {
+//            // Fallback on earlier versions
+//            self.bannerview.load(GADRequest())
+//        }
+//    }
+// 
+//    
+//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        bannerview.isHidden = false
+//    }
+//    
+//    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+//        bannerview.isHidden = true
+//    }
+//    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

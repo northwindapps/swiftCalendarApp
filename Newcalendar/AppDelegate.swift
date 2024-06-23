@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import Firebase
+//import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        FirebaseApp.configure()
-        
-        // Initialize the Google Mobile Ads SDK.
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-5284441033171047~2910551879")
+//        FirebaseApp.configure()
+//        
+//        // Initialize the Google Mobile Ads SDK.
+//        GADMobileAds.configure(withApplicationID: "ca-app-pub-5284441033171047~2910551879")
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

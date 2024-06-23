@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124741650120C96BC7442C59 /* libPods-Newcalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D8A22CD66A108C9815671C /* libPods-Newcalendar.a */; };
 		2BD254362C281B4E003F38DE /* PencilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD254352C281B4E003F38DE /* PencilController.swift */; };
 		3C1941382104DAFC00C07555 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1941372104DAFC00C07555 /* AudioViewController.swift */; };
 		3C1D954F2103093400021ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1D954E2103093400021ADF /* AppDelegate.swift */; };
@@ -95,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124741650120C96BC7442C59 /* libPods-Newcalendar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,22 +582,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = 637JS3JU7M;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"FirebaseCore\"",
-					"-l\"GoogleToolboxForMac\"",
 					"-l\"c++\"",
-					"-l\"nanopb\"",
 					"-l\"sqlite3\"",
 					"-l\"z\"",
 					"-framework",
@@ -615,19 +615,9 @@
 					"-framework",
 					"\"CoreVideo\"",
 					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
-					"\"FirebaseNanoPB\"",
-					"-framework",
 					"\"Foundation\"",
 					"-framework",
 					"\"GLKit\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
 					"-framework",
 					"\"MediaPlayer\"",
 					"-framework",
@@ -673,22 +663,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEVELOPMENT_TEAM = 637JS3JU7M;
 				INFOPLIST_FILE = Newcalendar/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"FirebaseCore\"",
-					"-l\"GoogleToolboxForMac\"",
 					"-l\"c++\"",
-					"-l\"nanopb\"",
 					"-l\"sqlite3\"",
 					"-l\"z\"",
 					"-framework",
@@ -708,19 +696,9 @@
 					"-framework",
 					"\"CoreVideo\"",
 					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
-					"\"FirebaseNanoPB\"",
-					"-framework",
 					"\"Foundation\"",
 					"-framework",
 					"\"GLKit\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
 					"-framework",
 					"\"MediaPlayer\"",
 					"-framework",

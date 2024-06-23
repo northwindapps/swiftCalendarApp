@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GoogleMobileAds
+//import GoogleMobileAds
 import PencilKit
 
 
@@ -15,11 +15,11 @@ import PencilKit
 var tableContent = [String]()
 
 
-class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate, GADBannerViewDelegate {
+class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate  {
     
     //UI,ClassVariables
     @IBOutlet weak var myTable: UITableView!
-    var bannerView: GADBannerView!
+//    var bannerView: GADBannerView!
     
     @IBOutlet weak var homebutton: UIButton!
     
@@ -168,6 +168,22 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.V5.layer.zPosition = 2
         cell.V6.layer.zPosition = 2
         cell.V7.layer.zPosition = 2
+        
+        cell.V1.layer.borderWidth = 0.5
+        cell.V1.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V2.layer.borderWidth = 0.5
+        cell.V2.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V3.layer.borderWidth = 0.5
+        cell.V3.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V4.layer.borderWidth = 0.5
+        cell.V4.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V5.layer.borderWidth = 0.5
+        cell.V5.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V6.layer.borderWidth = 0.5
+        cell.V6.layer.borderColor = UIColor.systemGray.cgColor
+        cell.V7.layer.borderWidth = 0.5
+        cell.V7.layer.borderColor = UIColor.systemGray.cgColor
+       
 
         
         
@@ -398,63 +414,110 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         switch input_type {
         case InputType.handwriting.rawValue:
-            let ymd = ym0[indexPath.row].components(separatedBy: "/")
-            if  ymd.count != 3{
-                print(ym0[indexPath.row].replacingOccurrences(of: "/", with: ""))
-                break
-            }
-            // Create PKCanvasView
-            var canvasView = PKCanvasView(frame: CGRect(x: 0, y: 0, width: cell.V1.frame.width, height: cell.V1.frame.height))
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V1.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
-            }
+            let ymd0 = ym0[indexPath.row].components(separatedBy: "/")
+            let ymd1 = ym1[indexPath.row].components(separatedBy: "/")
+            let ymd2 = ym2[indexPath.row].components(separatedBy: "/")
+            let ymd3 = ym3[indexPath.row].components(separatedBy: "/")
+            let ymd4 = ym4[indexPath.row].components(separatedBy: "/")
+            let ymd5 = ym5[indexPath.row].components(separatedBy: "/")
+            let ymd6 = ym6[indexPath.row].components(separatedBy: "/")
             
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V2.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
-            }
-            
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V3.addSubview(scaleDrawingToFitView(drawing: canvasView.drawing, canvasView: canvasView))
-            }
-            
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V4.addSubview(canvasView)
+            cell.V1.subviews.forEach { $0.removeFromSuperview() }
+            cell.V2.subviews.forEach { $0.removeFromSuperview() }
+            cell.V3.subviews.forEach { $0.removeFromSuperview() }
+            cell.V4.subviews.forEach { $0.removeFromSuperview() }
+            cell.V5.subviews.forEach { $0.removeFromSuperview() }
+            cell.V6.subviews.forEach { $0.removeFromSuperview() }
+            cell.V7.subviews.forEach { $0.removeFromSuperview() }
+                        
+            if ymd0.count == 3 {
+                if let loadedDrawingData0 = loadDrawingFromFile(filename: ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing0 = try PKDrawing(data: loadedDrawingData0)
+                        let canvasView0 = PKCanvasView(frame: cell.V1.bounds)
+                        cell.V1.addSubview(scaleDrawingToFitView(drawing: drawing0, canvasView: canvasView0))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
             }
             
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V5.addSubview(canvasView)
+        
+            if ymd1.count == 3 {
+                if let loadedDrawingData1 = loadDrawingFromFile(filename: ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                        let canvasView1 = PKCanvasView(frame: cell.V2.bounds)
+                        cell.V2.addSubview(scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
             }
             
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V6.addSubview(canvasView)
+            if ymd2.count == 3 {
+                if let loadedDrawingData2 = loadDrawingFromFile(filename: ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing2 = try PKDrawing(data: loadedDrawingData2)
+                        let canvasView2 = PKCanvasView(frame: cell.V3.bounds)
+                        cell.V3.addSubview(scaleDrawingToFitView(drawing: drawing2, canvasView: canvasView2))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
             }
             
-            if let loadedDrawingData = loadDrawingFromFile(filename: ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                // Use the loaded drawing data
-                print("Drawing data loaded: \(loadedDrawingData)")
-                canvasView.drawing = try! PKDrawing(data: loadedDrawingData)
-                cell.V7.addSubview(canvasView)
+            if ymd3.count == 3 {
+                if let loadedDrawingData3 = loadDrawingFromFile(filename: ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing3 = try PKDrawing(data: loadedDrawingData3)
+                        let canvasView3 = PKCanvasView(frame: cell.V4.bounds)
+                        cell.V4.addSubview(scaleDrawingToFitView(drawing: drawing3, canvasView: canvasView3))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
             }
             
+            if ymd4.count == 3 {
+                cell.V5.subviews.forEach { $0.removeFromSuperview() }
+                if let loadedDrawingData4 = loadDrawingFromFile(filename: ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing4 = try PKDrawing(data: loadedDrawingData4)
+                        let canvasView4 = PKCanvasView(frame: cell.V5.bounds)
+                        cell.V5.addSubview(scaleDrawingToFitView(drawing: drawing4, canvasView: canvasView4))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
+            }
             
+            if ymd5.count == 3 {
+                
+                if let loadedDrawingData5 = loadDrawingFromFile(filename: ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing5 = try PKDrawing(data: loadedDrawingData5)
+                        let canvasView5 = PKCanvasView(frame: cell.V6.bounds)
+                        cell.V6.addSubview(scaleDrawingToFitView(drawing: drawing5, canvasView: canvasView5))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
+            }
+            
+            if ymd5.count == 3 {
+                if let loadedDrawingData6 = loadDrawingFromFile(filename: ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                    do {
+                        let drawing6 = try PKDrawing(data: loadedDrawingData6)
+                        let canvasView6 = PKCanvasView(frame: cell.V7.bounds)
+                        cell.V7.addSubview(scaleDrawingToFitView(drawing: drawing6, canvasView: canvasView6))
+                    } catch {
+                        print("Error creating drawing from data: \(error.localizedDescription)")
+                    }
+                }
+            }
+            
+          
             
         case InputType.keybord.rawValue:
             if text_location.contains(ym0[indexPath.row]) || text_locationTime.contains(ym0[indexPath.row]) {
@@ -677,7 +740,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         homebutton.addTarget(self, action: #selector(scrollToRow), for: UIControl.Event.touchUpInside)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 self?.scrollToRow()
             }
     }
@@ -1061,10 +1124,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         do {
             // Read the data from the file
             let drawingData = try Data(contentsOf: fileURL)
-            print("Drawing data loaded successfully from \(fileURL.path)")
             return drawingData
         } catch {
-            print("Error loading drawing data: \(error.localizedDescription)")
             return nil
         }
     }

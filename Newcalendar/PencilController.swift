@@ -7,7 +7,7 @@ import PencilKit
 class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObserver , UIGestureRecognizerDelegate, UITextViewDelegate {
 
     private var synthesizer = AVSpeechSynthesizer()
-    var canvasView: CustomCanvasView!
+    var canvasView: PKCanvasView!
     var toolPicker: PKToolPicker!
     var progressView: UIProgressView!
     var segmentedControl:UISegmentedControl?
@@ -29,7 +29,7 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         view.addSubview(scrollView)
         
         // Create PKCanvasView
-        canvasView = CustomCanvasView(frame: CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height))
+        canvasView = PKCanvasView(frame: CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height))
         scrollView.addSubview(canvasView)
         
         scrollView.isScrollEnabled = false
@@ -37,12 +37,10 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
             scrollView.addGestureRecognizer(pinchGestureRecognizer)
         
-//        canvasView = PKCanvasView(frame: view.bounds)
         canvasView.delegate = self
         canvasView.drawingPolicy = .anyInput
         canvasView.isUserInteractionEnabled = true
-//        view.addSubview(canvasView)
-        configureCanvas()
+
         // Add reset button
         let resetButton = UIButton(type: .system)
         resetButton.setTitle("Return", for: .normal)
@@ -50,63 +48,52 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         view.addSubview(resetButton)
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), // Align with view.trailingAnchor with a spacing of 20 points
-            resetButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20) // Align with view.bottomAnchor
+            resetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            resetButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
         
-      
-        
-        // Add return button
-        let returnButton = UIButton(type: .system)
-        returnButton.setTitle("Return", for: .normal)
-        view.addSubview(returnButton)
-        returnButton.translatesAutoresizingMaskIntoConstraints = false
-        returnButton.addTarget(self, action: #selector(returnToDataView), for: .touchUpInside)
+        // Add reset strokes button
+        let resetStrokeButton = UIButton(type: .system)
+        resetStrokeButton.setTitle("Reset Strokes", for: .normal)
+        resetStrokeButton.addTarget(self, action: #selector(resetCanvas), for: .touchUpInside)
+        view.addSubview(resetStrokeButton)
+        resetStrokeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            returnButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), // Align with view.trailingAnchor with a spacing of 20 points
-            returnButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20) // Align with view.bottomAnchor
+            resetStrokeButton.trailingAnchor.constraint(equalTo: resetButton.leadingAnchor, constant: -20),
+            resetStrokeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
         
-
+        
+        // Load drawing if available
+        if let loadedDrawingData = loadDrawingFromFile(filename: id) {
+            do {
+                let drawing = try PKDrawing(data: loadedDrawingData)
+                canvasView.drawing = drawing
+            } catch {
+                print("Error loading drawing data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         //
         toolPicker = PKToolPicker()
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(self)
+        configureCanvas()
         canvasView.becomeFirstResponder()
-        
-        //initTextView()
-        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(canvasTapped(_:)))
-        tapGestureRecognizer.delegate = self
-        canvasView.addGestureRecognizer(tapGestureRecognizer)
-        
-        //
-//        if let savedData = loadData() {
-//            canvasView.drawing = try! PKDrawing(data: savedData)
-//        }
-        
-        
+        toolPicker.setVisible(true, forFirstResponder: canvasView)
     }
+
     
-    @objc func addStrokeButtonTapped() {
-           // Define the coordinates for the new stroke
-           let points = [CGPoint(x: 100, y: 100), CGPoint(x: 150, y: 150), CGPoint(x: 200, y: 100)]
-           canvasView.addStroke(at: points, with: .blue, width: 10.0)
-    }
-    
-    
-//    @objc func shrinkButtonTapped() {
-//            canvasView.shrinkStrokes(by: 2.0) // Example: shrink by a factor of 2
-//    }
-    
-    // Function to save drawing data
     func saveData() {
-        //let drawingData = canvasView.drawing.dataRepresentation()
+            let drawingData = canvasView.drawing.dataRepresentation()
+            saveDrawingToFile(drawingData: drawingData)
+        }
         
-        let drawingData = canvasView.drawing.dataRepresentation()
-        saveDrawingToFile(drawingData: drawingData)
-        //UserDefaults.standard.set(drawingData, forKey: "drawingData")
-    }
-    
+
     func saveDrawingToFile(drawingData: Data) {
         // Get the path to the Documents directory
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -124,13 +111,23 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         }
     }
     
-    
-    // Function to load drawing data
-    func loadData() -> Data? {
-        // Retrieve drawing data using your preferred storage mechanism
-        // For example, load from user defaults
-        return UserDefaults.standard.data(forKey: "drawingData")
+    func loadDrawingFromFile(filename:String) -> Data? {
+        // Get the path to the Documents directory
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // Create a file URL with the same file name and extension
+        let filename = filename + ".dat"
+        let fileURL = documentsDirectory.appendingPathComponent(filename)
+        
+        do {
+            // Read the data from the file
+            let drawingData = try Data(contentsOf: fileURL)
+            return drawingData
+        } catch {
+            return nil
+        }
     }
+
     
     @objc func canvasTapped(_ gestureRecognizer: UITapGestureRecognizer) {
        // Handle canvas tap here
@@ -237,10 +234,6 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
     
     @objc func resetCanvas() {
         canvasView.drawing = PKDrawing()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {

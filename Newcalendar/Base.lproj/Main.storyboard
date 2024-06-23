@@ -838,15 +838,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSc-HY-zT3" customClass="GADBannerView">
-                                <rect key="frame" x="47" y="686" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1AC-9m-q53"/>
-                                    <constraint firstAttribute="width" constant="320" id="Z5g-L9-BO0"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="gao-kZ-Z07"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LUU-s0-cwr"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -866,13 +857,11 @@
                             <constraint firstItem="UNi-OT-3Ss" firstAttribute="top" secondItem="DrO-zg-1HF" secondAttribute="bottom" id="SxD-Rc-vYF"/>
                             <constraint firstItem="tyO-Mj-vir" firstAttribute="leading" secondItem="HHM-xt-WLw" secondAttribute="leading" id="TZj-ct-2EM"/>
                             <constraint firstItem="LUU-s0-cwr" firstAttribute="trailing" secondItem="UNi-OT-3Ss" secondAttribute="trailing" constant="10" id="Wlh-s7-8kx"/>
-                            <constraint firstItem="WSc-HY-zT3" firstAttribute="top" secondItem="bYV-1X-C8n" secondAttribute="bottom" id="XTN-Ay-nis"/>
-                            <constraint firstItem="WSc-HY-zT3" firstAttribute="centerX" secondItem="tyO-Mj-vir" secondAttribute="centerX" id="YZt-6K-BRU"/>
                             <constraint firstItem="UNi-OT-3Ss" firstAttribute="leading" secondItem="bYV-1X-C8n" secondAttribute="leading" id="doc-Ad-4oJ"/>
-                            <constraint firstItem="WSc-HY-zT3" firstAttribute="bottom" secondItem="LUU-s0-cwr" secondAttribute="bottom" id="eky-0o-utl"/>
                             <constraint firstItem="zaf-5Z-Lfe" firstAttribute="leading" secondItem="LUU-s0-cwr" secondAttribute="leading" id="fmT-ie-puS"/>
                             <constraint firstItem="DrO-zg-1HF" firstAttribute="centerX" secondItem="zaf-5Z-Lfe" secondAttribute="centerX" id="hrP-jg-fIg"/>
                             <constraint firstItem="bYV-1X-C8n" firstAttribute="leading" secondItem="LUU-s0-cwr" secondAttribute="leading" constant="10" id="hwn-NB-VHi"/>
+                            <constraint firstItem="LUU-s0-cwr" firstAttribute="bottom" secondItem="bYV-1X-C8n" secondAttribute="bottom" constant="50" id="ku6-sf-bjr"/>
                             <constraint firstItem="tyO-Mj-vir" firstAttribute="top" secondItem="HHM-xt-WLw" secondAttribute="top" id="nNV-SA-Huz"/>
                             <constraint firstItem="bYV-1X-C8n" firstAttribute="top" secondItem="UNi-OT-3Ss" secondAttribute="bottom" constant="9" id="pEy-8y-Beh"/>
                             <constraint firstItem="bYV-1X-C8n" firstAttribute="leading" secondItem="LUU-s0-cwr" secondAttribute="leading" constant="10" id="qjq-9o-HeB"/>
@@ -881,7 +870,6 @@
                     </view>
                     <connections>
                         <outlet property="Playbutton" destination="AHp-pj-933" id="nJv-4a-PtI"/>
-                        <outlet property="bannerview" destination="WSc-HY-zT3" id="UTR-Xs-DrP"/>
                         <outlet property="entryview" destination="UNi-OT-3Ss" id="x9D-5X-CGf"/>
                         <outlet property="imagewindow" destination="bYV-1X-C8n" id="e7V-e9-V5C"/>
                         <outlet property="memo" destination="DrO-zg-1HF" id="VGt-fE-Yh5"/>
@@ -981,7 +969,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bannerview" destination="Hvh-f5-DTa" id="3kh-RO-6Xq"/>
                         <outlet property="deletebutton" destination="mTf-TE-PxD" id="l5Q-BQ-d9J"/>
                         <outlet property="playbutton" destination="epo-ed-hYt" id="R7a-vL-FWt"/>
                         <outlet property="recordButton" destination="ku7-bv-9aA" id="pHv-fD-082"/>
