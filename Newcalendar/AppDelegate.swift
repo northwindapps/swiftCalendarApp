@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreData
-//import Firebase
+import AppTrackingTransparency
+import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,11 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-//        FirebaseApp.configure()
-//        
-//        // Initialize the Google Mobile Ads SDK.
-//        GADMobileAds.configure(withApplicationID: "ca-app-pub-5284441033171047~2910551879")
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "mainview")
@@ -40,6 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.frame = self.window!.bounds
         self.window?.makeKeyAndVisible()
+        
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+                // Tracking permission has not been requested yet, show the permission alert
+                showTrackingPermissionAlert()
+            }
+        }
+        
         return true
     }
 
@@ -66,6 +70,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
 
     }
+    
+    func requestTrackingPermission() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .authorized:
+                    // Tracking authorized
+                    print("Tracking authorized")
+                case .denied:
+                    // Tracking denied
+                    print("Tracking denied")
+                case .restricted:
+                    // Tracking restricted
+                    print("Tracking restricted")
+                case .notDetermined:
+                    // Tracking not determined
+                    print("Tracking not determined")
+                @unknown default:
+                    print("Unknown tracking status")
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    func showTrackingPermissionAlert() {
+           let alertController = UIAlertController(
+               title: "Tracking Permission",
+               message: "We use tracking to personalize your experience and improve our app. Tap \"Allow\" to consent.",
+               preferredStyle: .alert
+           )
+           
+           let allowAction = UIAlertAction(title: "Allow", style: .default) { _ in
+               // Request tracking permission when user taps Allow
+               self.requestTrackingPermission()
+               
+           }
+        
+           let denyAction = UIAlertAction(title: "Deny", style: .default) { _ in
+                // Request tracking permission when user taps Allow
+               self.requestTrackingPermission()
+                
+           }
+           
+           alertController.addAction(allowAction)
+        
+           alertController.addAction(denyAction)
+           
+           if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+               // Show the alert only if tracking permission has not been determined
+               if let rootViewController = self.window?.rootViewController {
+                   rootViewController.present(alertController, animated: true, completion: nil)
+               }
+           }
+       }
 
 }
 

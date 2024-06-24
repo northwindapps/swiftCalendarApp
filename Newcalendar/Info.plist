@@ -28,6 +28,8 @@
 	<string>hi</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To access photo album</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>We use tracking to personalize your experience and improve our app.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

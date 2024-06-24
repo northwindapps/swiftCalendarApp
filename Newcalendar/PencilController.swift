@@ -43,7 +43,7 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
 
         // Add reset button
         let resetButton = UIButton(type: .system)
-        resetButton.setTitle("Return", for: .normal)
+        resetButton.setTitle("↩︎", for: .normal)
         resetButton.addTarget(self, action: #selector(returnToDataView), for: .touchUpInside)
         view.addSubview(resetButton)
         resetButton.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +54,7 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
 
         // Add reset strokes button
         let resetStrokeButton = UIButton(type: .system)
-        resetStrokeButton.setTitle("Reset Strokes", for: .normal)
+        resetStrokeButton.setTitle("Reset", for: .normal)
         resetStrokeButton.addTarget(self, action: #selector(resetCanvas), for: .touchUpInside)
         view.addSubview(resetStrokeButton)
         resetStrokeButton.translatesAutoresizingMaskIntoConstraints = false
