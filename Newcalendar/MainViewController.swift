@@ -342,8 +342,17 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.layer.shadowOpacity=0.0
         cell.layer.backgroundColor = UIColor.clear.cgColor
         
+        cell.V1.subviews.forEach { $0.removeFromSuperview() }
+        cell.V2.subviews.forEach { $0.removeFromSuperview() }
+        cell.V3.subviews.forEach { $0.removeFromSuperview() }
+        cell.V4.subviews.forEach { $0.removeFromSuperview() }
+        cell.V5.subviews.forEach { $0.removeFromSuperview() }
+        cell.V6.subviews.forEach { $0.removeFromSuperview() }
+        cell.V7.subviews.forEach { $0.removeFromSuperview() }
+        
         //yyyy Sep, Apr, Oct...
         if col0[indexPath.row].first == "?"{
+            
             
             cell.L1.text = col0[indexPath.row].replacingOccurrences(of: "?", with: "")
             print(col0[indexPath.row])
@@ -397,171 +406,192 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.layer.shadowOffset = CGSize(width: 1, height: 1)
             cell.layer.backgroundColor = UIColor.systemBlue.cgColor
             cell.L1.layer.zPosition = 4
+            
+            cell.V1.layer.borderWidth = 0.0
+            cell.V1.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V2.layer.borderWidth = 0.0
+            cell.V2.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V3.layer.borderWidth = 0.0
+            cell.V3.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V4.layer.borderWidth = 0.0
+            cell.V4.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V5.layer.borderWidth = 0.0
+            cell.V5.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V6.layer.borderWidth = 0.0
+            cell.V6.layer.borderColor = UIColor.systemGray.cgColor
+            cell.V7.layer.borderWidth = 0.0
+            cell.V7.layer.borderColor = UIColor.systemGray.cgColor
            
         }
         
 
-        
-        //Main Content
-        cell.M1.text = ""
-        cell.M2.text = ""
-        cell.M3.text = ""
-        cell.M4.text = ""
-        cell.M5.text = ""
-        cell.M6.text = ""
-        cell.M7.text = ""
-        
-        
-        switch input_type {
-        case InputType.handwriting.rawValue:
-            let ymd0 = ym0[indexPath.row].components(separatedBy: "/")
-            let ymd1 = ym1[indexPath.row].components(separatedBy: "/")
-            let ymd2 = ym2[indexPath.row].components(separatedBy: "/")
-            let ymd3 = ym3[indexPath.row].components(separatedBy: "/")
-            let ymd4 = ym4[indexPath.row].components(separatedBy: "/")
-            let ymd5 = ym5[indexPath.row].components(separatedBy: "/")
-            let ymd6 = ym6[indexPath.row].components(separatedBy: "/")
+        if col0[indexPath.row].first != "?"{
+            //Main Content
+            cell.M1.text = ""
+            cell.M2.text = ""
+            cell.M3.text = ""
+            cell.M4.text = ""
+            cell.M5.text = ""
+            cell.M6.text = ""
+            cell.M7.text = ""
+            cell.L1.layer.zPosition = 0
             
-            cell.V1.subviews.forEach { $0.removeFromSuperview() }
-            cell.V2.subviews.forEach { $0.removeFromSuperview() }
-            cell.V3.subviews.forEach { $0.removeFromSuperview() }
-            cell.V4.subviews.forEach { $0.removeFromSuperview() }
-            cell.V5.subviews.forEach { $0.removeFromSuperview() }
-            cell.V6.subviews.forEach { $0.removeFromSuperview() }
-            cell.V7.subviews.forEach { $0.removeFromSuperview() }
-                        
-            if ymd0.count == 3 {
-                if let loadedDrawingData0 = loadDrawingFromFile(filename: ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing0 = try PKDrawing(data: loadedDrawingData0)
-                        let canvasView0 = PKCanvasView(frame: cell.V1.bounds)
-                        cell.V1.addSubview(scaleDrawingToFitView(drawing: drawing0, canvasView: canvasView0))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+            switch input_type {
+            case InputType.handwriting.rawValue:
+                let ymd0 = ym0[indexPath.row].components(separatedBy: "/")
+                let ymd1 = ym1[indexPath.row].components(separatedBy: "/")
+                let ymd2 = ym2[indexPath.row].components(separatedBy: "/")
+                let ymd3 = ym3[indexPath.row].components(separatedBy: "/")
+                let ymd4 = ym4[indexPath.row].components(separatedBy: "/")
+                let ymd5 = ym5[indexPath.row].components(separatedBy: "/")
+                let ymd6 = ym6[indexPath.row].components(separatedBy: "/")
+                
+                
+                if ymd0.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData0 = self.loadDrawingFromFile(filename: self.ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing0 = try PKDrawing(data: loadedDrawingData0)
+                                let canvasView0 = PKCanvasView(frame: cell.V1.bounds)
+                                cell.V1.addSubview(self.scaleDrawingToFitView(drawing: drawing0, canvasView: canvasView0))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-        
-            if ymd1.count == 3 {
-                if let loadedDrawingData1 = loadDrawingFromFile(filename: ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing1 = try PKDrawing(data: loadedDrawingData1)
-                        let canvasView1 = PKCanvasView(frame: cell.V2.bounds)
-                        cell.V2.addSubview(scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                
+                
+                if ymd1.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: self.ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V2.bounds)
+                                cell.V2.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-            if ymd2.count == 3 {
-                if let loadedDrawingData2 = loadDrawingFromFile(filename: ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing2 = try PKDrawing(data: loadedDrawingData2)
-                        let canvasView2 = PKCanvasView(frame: cell.V3.bounds)
-                        cell.V3.addSubview(scaleDrawingToFitView(drawing: drawing2, canvasView: canvasView2))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                
+                if ymd2.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData2 = self.loadDrawingFromFile(filename: self.ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing2 = try PKDrawing(data: loadedDrawingData2)
+                                let canvasView2 = PKCanvasView(frame: cell.V3.bounds)
+                                cell.V3.addSubview(self.scaleDrawingToFitView(drawing: drawing2, canvasView: canvasView2))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-            if ymd3.count == 3 {
-                if let loadedDrawingData3 = loadDrawingFromFile(filename: ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing3 = try PKDrawing(data: loadedDrawingData3)
-                        let canvasView3 = PKCanvasView(frame: cell.V4.bounds)
-                        cell.V4.addSubview(scaleDrawingToFitView(drawing: drawing3, canvasView: canvasView3))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                
+                if ymd3.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData3 = self.loadDrawingFromFile(filename: self.ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing3 = try PKDrawing(data: loadedDrawingData3)
+                                let canvasView3 = PKCanvasView(frame: cell.V4.bounds)
+                                cell.V4.addSubview(self.scaleDrawingToFitView(drawing: drawing3, canvasView: canvasView3))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-            if ymd4.count == 3 {
-                cell.V5.subviews.forEach { $0.removeFromSuperview() }
-                if let loadedDrawingData4 = loadDrawingFromFile(filename: ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing4 = try PKDrawing(data: loadedDrawingData4)
-                        let canvasView4 = PKCanvasView(frame: cell.V5.bounds)
-                        cell.V5.addSubview(scaleDrawingToFitView(drawing: drawing4, canvasView: canvasView4))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                
+                if ymd4.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData4 = self.loadDrawingFromFile(filename: self.ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing4 = try PKDrawing(data: loadedDrawingData4)
+                                let canvasView4 = PKCanvasView(frame: cell.V5.bounds)
+                                cell.V5.addSubview(self.scaleDrawingToFitView(drawing: drawing4, canvasView: canvasView4))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-            if ymd5.count == 3 {
                 
-                if let loadedDrawingData5 = loadDrawingFromFile(filename: ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing5 = try PKDrawing(data: loadedDrawingData5)
-                        let canvasView5 = PKCanvasView(frame: cell.V6.bounds)
-                        cell.V6.addSubview(scaleDrawingToFitView(drawing: drawing5, canvasView: canvasView5))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                if ymd5.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData5 = self.loadDrawingFromFile(filename: self.ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing5 = try PKDrawing(data: loadedDrawingData5)
+                                let canvasView5 = PKCanvasView(frame: cell.V6.bounds)
+                                cell.V6.addSubview(self.scaleDrawingToFitView(drawing: drawing5, canvasView: canvasView5))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-            if ymd5.count == 3 {
-                if let loadedDrawingData6 = loadDrawingFromFile(filename: ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
-                    do {
-                        let drawing6 = try PKDrawing(data: loadedDrawingData6)
-                        let canvasView6 = PKCanvasView(frame: cell.V7.bounds)
-                        cell.V7.addSubview(scaleDrawingToFitView(drawing: drawing6, canvasView: canvasView6))
-                    } catch {
-                        print("Error creating drawing from data: \(error.localizedDescription)")
+                
+                if ymd6.count == 3 {
+                    DispatchQueue.main.async {
+                        if let loadedDrawingData6 = self.loadDrawingFromFile(filename: self.ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                            do {
+                                let drawing6 = try PKDrawing(data: loadedDrawingData6)
+                                let canvasView6 = PKCanvasView(frame: cell.V7.bounds)
+                                cell.V7.addSubview(self.scaleDrawingToFitView(drawing: drawing6, canvasView: canvasView6))
+                            } catch {
+                                print("Error creating drawing from data: \(error.localizedDescription)")
+                            }
+                        }
                     }
                 }
-            }
-            
-          
-            
-        case InputType.keybord.rawValue:
-            if text_location.contains(ym0[indexPath.row]) || text_locationTime.contains(ym0[indexPath.row]) {
                 
-                let indexOfA = text_location.firstIndex(of: ym0[indexPath.row])
-                cell.M1.text = text_content[indexOfA!]
-            }
-            
-            if text_location.contains(ym1[indexPath.row]) || text_locationTime.contains(ym1[indexPath.row]) {
                 
-                let indexOfA = text_location.firstIndex(of: ym1[indexPath.row])
-                cell.M2.text = text_content[indexOfA!]
-            }
-            
-            if text_location.contains(ym2[indexPath.row]) || text_locationTime.contains(ym2[indexPath.row]) {
                 
-                let indexOfA = text_location.firstIndex(of: ym2[indexPath.row])
-                cell.M3.text = text_content[indexOfA!]
-            }
-            
-            if text_location.contains(ym3[indexPath.row]) || text_locationTime.contains(ym3[indexPath.row])  {
+            case InputType.keybord.rawValue:
+                if text_location.contains(ym0[indexPath.row]) || text_locationTime.contains(ym0[indexPath.row]) {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym0[indexPath.row])
+                    cell.M1.text = text_content[indexOfA!]
+                }
                 
-                let indexOfA = text_location.firstIndex(of: ym3[indexPath.row])
-                cell.M4.text = text_content[indexOfA!]
-            }
-            
-            if text_location.contains(ym4[indexPath.row]) || text_locationTime.contains(ym4[indexPath.row])  {
+                if text_location.contains(ym1[indexPath.row]) || text_locationTime.contains(ym1[indexPath.row]) {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym1[indexPath.row])
+                    cell.M2.text = text_content[indexOfA!]
+                }
                 
-                let indexOfA = text_location.firstIndex(of: ym4[indexPath.row])
-                cell.M5.text = text_content[indexOfA!]
-            }
-            
-            if text_location.contains(ym5[indexPath.row]) || text_locationTime.contains(ym5[indexPath.row]) {
+                if text_location.contains(ym2[indexPath.row]) || text_locationTime.contains(ym2[indexPath.row]) {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym2[indexPath.row])
+                    cell.M3.text = text_content[indexOfA!]
+                }
                 
-                let indexOfA = text_location.firstIndex(of: ym5[indexPath.row])
-                cell.M6.text = text_content[indexOfA!]
+                if text_location.contains(ym3[indexPath.row]) || text_locationTime.contains(ym3[indexPath.row])  {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym3[indexPath.row])
+                    cell.M4.text = text_content[indexOfA!]
+                }
+                
+                if text_location.contains(ym4[indexPath.row]) || text_locationTime.contains(ym4[indexPath.row])  {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym4[indexPath.row])
+                    cell.M5.text = text_content[indexOfA!]
+                }
+                
+                if text_location.contains(ym5[indexPath.row]) || text_locationTime.contains(ym5[indexPath.row]) {
+                    
+                    let indexOfA = text_location.firstIndex(of: ym5[indexPath.row])
+                    cell.M6.text = text_content[indexOfA!]
+                }
+                
+                if text_location.contains(ym6[indexPath.row]) || text_locationTime.contains(ym6[indexPath.row])  {
+                    let indexOfA = text_location.firstIndex(of: ym6[indexPath.row])
+                    cell.M7.text = text_content[indexOfA!]
+                }
+            default:
+                break
             }
-            
-            if text_location.contains(ym6[indexPath.row]) || text_locationTime.contains(ym6[indexPath.row])  {
-                let indexOfA = text_location.firstIndex(of: ym6[indexPath.row])
-                cell.M7.text = text_content[indexOfA!]
-            }
-        default:
-            break
         }
         
         
