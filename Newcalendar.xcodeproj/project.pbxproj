@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		124741650120C96BC7442C59 /* libPods-Newcalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D8A22CD66A108C9815671C /* libPods-Newcalendar.a */; };
 		2BD254362C281B4E003F38DE /* PencilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD254352C281B4E003F38DE /* PencilController.swift */; };
-		2BD254382C29836D003F38DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BD254372C29836D003F38DE /* InfoPlist.strings */; };
 		3C1941382104DAFC00C07555 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1941372104DAFC00C07555 /* AudioViewController.swift */; };
 		3C1D954F2103093400021ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1D954E2103093400021ADF /* AppDelegate.swift */; };
 		3C1D95512103093400021ADF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1D95502103093400021ADF /* DataController.swift */; };
@@ -49,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		2BD254352C281B4E003F38DE /* PencilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilController.swift; sourceTree = "<group>"; };
-		2BD254372C29836D003F38DE /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		3C1941372104DAFC00C07555 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		3C1D954B2103093300021ADF /* N-Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "N-Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C1D954E2103093400021ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				3C1D95582103093600021ADF /* Assets.xcassets */,
 				3C1D955A2103093600021ADF /* LaunchScreen.storyboard */,
 				6ADC07C526346AA200E2A8D9 /* Info.plist */,
-				2BD254372C29836D003F38DE /* InfoPlist.strings */,
 				3C1D95552103093400021ADF /* Newcalendar.xcdatamodeld */,
 			);
 			path = Newcalendar;
@@ -307,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A51936024003F2B009A838A /* DetailBoard.xib in Resources */,
-				2BD254382C29836D003F38DE /* InfoPlist.strings in Resources */,
 				3C1D955C2103093600021ADF /* LaunchScreen.storyboard in Resources */,
 				3C1D95592103093600021ADF /* Assets.xcassets in Resources */,
 				3C1D95542103093400021ADF /* Main.storyboard in Resources */,
