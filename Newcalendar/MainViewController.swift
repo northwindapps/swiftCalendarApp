@@ -103,7 +103,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             if deviceType.contains("iPad"){
                 return 250.0
             }else{
-                return 100.0
+                return 150.0
             }
             
         }
@@ -193,11 +193,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.V7.layer.borderColor = UIColor.systemGray.cgColor
        
 
-        
-        
-        
-
-        
         cell.S1.font = UIFont.systemFont(ofSize: 12.0)
         cell.S2.font = UIFont.systemFont(ofSize: 12.0)
         cell.S3.font = UIFont.systemFont(ofSize: 12.0)
@@ -226,43 +221,36 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.S1.backgroundColor = UIColor.clear
         cell.S1.textColor = UIColor.red
-        cell.S1.layer.cornerRadius = 0.0
         cell.M1.layer.cornerRadius = 0.0
         cell.M1.backgroundColor = UIColor.white
         
         cell.S2.backgroundColor = UIColor.clear
         cell.S2.textColor = UIColor.black
-        cell.S2.layer.cornerRadius = 0.0
         cell.M2.layer.cornerRadius = 0.0
         cell.M2.backgroundColor = UIColor.white
         
         cell.S3.backgroundColor = UIColor.clear
         cell.S3.textColor = UIColor.black
-        cell.S3.layer.cornerRadius = 0.0
         cell.M3.layer.cornerRadius = 0.0
         cell.M3.backgroundColor = UIColor.white
         
         cell.S4.backgroundColor = UIColor.clear
         cell.S4.textColor = UIColor.black
-        cell.S4.layer.cornerRadius = 0.0
         cell.M4.layer.cornerRadius = 0.0
         cell.M4.backgroundColor = UIColor.white
         
         cell.S5.backgroundColor = UIColor.clear
         cell.S5.textColor = UIColor.black
-        cell.S5.layer.cornerRadius = 0.0
         cell.M5.layer.cornerRadius = 0.0
         cell.M5.backgroundColor = UIColor.white
         
         cell.S6.backgroundColor = UIColor.clear
         cell.S6.textColor = UIColor.black
-        cell.S6.layer.cornerRadius = 0.0
         cell.M6.layer.cornerRadius = 0.0
         cell.M6.backgroundColor = UIColor.white
         
         cell.S7.backgroundColor = UIColor.clear
         cell.S7.textColor = UIColor.black
-        cell.S7.layer.cornerRadius = 0.0
         cell.M7.layer.cornerRadius = 0.0
         cell.M7.backgroundColor = UIColor.white
         
@@ -270,9 +258,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if ym0[indexPath.row] == today{
             cell.S1.backgroundColor = UIColor.clear
             cell.S1.textColor = UIColor.red
-            cell.S1.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S1.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M1.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S1.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M1.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
@@ -281,9 +268,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if ym1[indexPath.row] == today{
             cell.S2.backgroundColor = UIColor.clear
             cell.S2.textColor = UIColor.black
-            cell.S2.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S2.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M2.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S2.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M2.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
@@ -292,9 +278,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if ym2[indexPath.row] == today{
             cell.S3.backgroundColor = UIColor.clear
             cell.S3.textColor = UIColor.black
-            cell.S3.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S3.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M3.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S3.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M3.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
@@ -303,9 +288,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if ym3[indexPath.row] == today{
             cell.S4.backgroundColor = UIColor.clear
             cell.S4.textColor = UIColor.black
-            cell.S4.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S4.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M4.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S4.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M4.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
             
             
@@ -314,27 +298,24 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if ym4[indexPath.row] == today{
             cell.S5.backgroundColor = UIColor.clear
             cell.S5.textColor = UIColor.black
-            cell.S5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S5.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M5.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
         }
         
         if ym5[indexPath.row] == today{
             cell.S6.backgroundColor = UIColor.clear
             cell.S6.textColor = UIColor.black
-            cell.S6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S6.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M6.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
         }
         
         if ym6[indexPath.row] == today{
             cell.S7.backgroundColor = UIColor.clear
             cell.S7.textColor = UIColor.black
-            cell.S7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
+            cell.S7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
             cell.M7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.S7.roundCorners(corners: [.topLeft,.topRight], radius: 5)
             cell.M7.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
         }
         
@@ -596,13 +577,13 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
         
-        cell.S1.layer.zPosition = 66
-        cell.S2.layer.zPosition = 66
-        cell.S3.layer.zPosition = 66
-        cell.S4.layer.zPosition = 66
-        cell.S5.layer.zPosition = 66
-        cell.S6.layer.zPosition = 66
-        cell.S7.layer.zPosition = 66
+        cell.S1.layer.zPosition = 6
+        cell.S2.layer.zPosition = 6
+        cell.S3.layer.zPosition = 6
+        cell.S4.layer.zPosition = 6
+        cell.S5.layer.zPosition = 6
+        cell.S6.layer.zPosition = 6
+        cell.S7.layer.zPosition = 6
         
         
         return cell
