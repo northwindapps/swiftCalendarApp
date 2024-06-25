@@ -17,6 +17,11 @@ var tableContent = [String]()
 
 class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate  {
     
+    @IBOutlet weak var scv: UIScrollView!
+    var panGesture: UIPanGestureRecognizer?
+    var initialFrame: CGRect = .zero
+    var initialTransform: CGAffineTransform = .identity
+    
     //UI,ClassVariables
     @IBOutlet weak var myTable: UITableView!
 //    var bannerView: GADBannerView!
@@ -77,6 +82,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         case handwriting = 0
         case keybord = 1
     }
+    
+    //when zooming activate
+    var isZoomed = false
     
     
     var input_type = 0
@@ -187,13 +195,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
         
         
-        cell.S1.layer.zPosition = 3
-        cell.S2.layer.zPosition = 3
-        cell.S3.layer.zPosition = 3
-        cell.S4.layer.zPosition = 3
-        cell.S5.layer.zPosition = 3
-        cell.S6.layer.zPosition = 3
-        cell.S7.layer.zPosition = 3
+        
 
         
         cell.S1.font = UIFont.systemFont(ofSize: 12.0)
@@ -594,6 +596,14 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
         
+        cell.S1.layer.zPosition = 66
+        cell.S2.layer.zPosition = 66
+        cell.S3.layer.zPosition = 66
+        cell.S4.layer.zPosition = 66
+        cell.S5.layer.zPosition = 66
+        cell.S6.layer.zPosition = 66
+        cell.S7.layer.zPosition = 66
+        
         
         return cell
     }
@@ -651,7 +661,20 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         self.myTable.allowsSelection = false
         
+        // Setup UIScrollView
+        scv.delegate = self
+        scv.minimumZoomScale = 1.0
+        scv.maximumZoomScale = 6.0
         
+        scv.addSubview(myTable)
+        
+        scv.contentSize = self.view.frame.size
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+                scv.addGestureRecognizer(pinchGesture)
+        
+        initialFrame = myTable.frame
+        initialTransform = myTable.transform
         
         //
         let date = Date()
@@ -798,7 +821,34 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 //        ])
 //    }
     
+    @objc func addHandlePan(){
+        if (panGesture == nil){
+            panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+            myTable.addGestureRecognizer(panGesture!)
+        }
+    }
     
+    @objc func removeHandlePan(){
+        if (panGesture != nil){
+            myTable.removeGestureRecognizer(panGesture!)
+            panGesture = nil
+        }
+    }
+    
+    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: myTable.superview)
+        myTable.frame.origin.x += translation.x
+        myTable.frame.origin.y += translation.y
+        gesture.setTranslation(.zero, in: myTable.superview)
+    }
+    
+    @objc func handlePinch(_ sender: UIPinchGestureRecognizer) {
+        guard let view = sender.view else { return }
+        view.transform = view.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1.0
+        addHandlePan()
+
+    }
     
     @objc func formatGoogleDate(googleDate:String)->String{
         
@@ -822,12 +872,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @objc func bTT(){
-        //this will do? I bet
-        let presentIndex = NSIndexPath(item: presentDay, section: 0)
-        myTable.scrollToRow(at: presentIndex as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-        
-        print("btt")
-        
+        scrollToRow()
     }
     
     func screenshot() -> UIImage{
@@ -1007,6 +1052,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @objc func scrollToRow(){
+        removeHandlePan()
+        myTable.frame = initialFrame
+        myTable.transform = initialTransform
         let idx = IndexPath(row: findTodaysRow(), section: 0)
         myTable.scrollToRow(at: idx, at: .middle, animated: true)
     }
