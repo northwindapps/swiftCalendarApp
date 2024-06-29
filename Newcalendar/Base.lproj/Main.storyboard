@@ -156,12 +156,12 @@
                                                     <rect key="frame" x="236.66666666666663" y="0.0" width="59" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-95-4EX">
-                                                    <rect key="frame" x="355" y="0.0" width="59" height="200"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvl-jI-fJc">
                                                     <rect key="frame" x="295.66666666666669" y="0.0" width="59.333333333333314" height="200"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSE-95-4EX">
+                                                    <rect key="frame" x="355" y="0.0" width="59" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
@@ -524,14 +524,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="UOR-Qm-Zaq" customClass="TableViewCell" customModule="GridEvents" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="40.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UOR-Qm-Zaq" id="3ND-0U-WrH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-FF-l9k">
-                                                    <rect key="frame" x="2" y="10.000000000000002" width="45" height="20.666666666666671"/>
+                                                    <rect key="frame" x="2" y="10" width="45" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="UUm-MD-LrA"/>
                                                     </constraints>
@@ -540,7 +540,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0k-kA-iyT">
-                                                    <rect key="frame" x="82" y="10.000000000000002" width="282" height="20.666666666666671"/>
+                                                    <rect key="frame" x="82" y="10" width="282" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="702" id="0sc-SY-sIZ"/>
                                                     </constraints>
@@ -549,7 +549,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05C-gY-cfs">
-                                                    <rect key="frame" x="52" y="10.000000000000002" width="30" height="20.666666666666671"/>
+                                                    <rect key="frame" x="52" y="10" width="30" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="OSO-fo-VxA"/>
                                                     </constraints>
@@ -558,7 +558,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▶︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1h-pw-cHR">
-                                                    <rect key="frame" x="364" y="0.0" width="50" height="40.666666666666664"/>
+                                                    <rect key="frame" x="364" y="0.0" width="50" height="41"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Kmg-AS-zP7"/>
                                                     </constraints>

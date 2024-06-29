@@ -153,19 +153,19 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.M6.layer.zPosition = 1
         cell.M7.layer.zPosition = 1
         
-        cell.M1.layer.borderWidth = 0.5
+        cell.M1.layer.borderWidth = 0.0
         cell.M1.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M2.layer.borderWidth = 0.5
+        cell.M2.layer.borderWidth = 0.0
         cell.M2.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M3.layer.borderWidth = 0.5
+        cell.M3.layer.borderWidth = 0.0
         cell.M3.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M4.layer.borderWidth = 0.5
+        cell.M4.layer.borderWidth = 0.0
         cell.M4.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M5.layer.borderWidth = 0.5
+        cell.M5.layer.borderWidth = 0.0
         cell.M5.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M6.layer.borderWidth = 0.5
+        cell.M6.layer.borderWidth = 0.0
         cell.M6.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M7.layer.borderWidth = 0.5
+        cell.M7.layer.borderWidth = 0.0
         cell.M7.layer.borderColor = UIColor.systemGray.cgColor
 
         

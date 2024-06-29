@@ -259,6 +259,7 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         saveData()
         let target = storyboard!.instantiateViewController(withIdentifier: "mainview") as! MainViewController
         target.modalPresentationStyle = .fullScreen
+        self.view.subviews.forEach { $0.removeFromSuperview() }
         present(target, animated: true, completion: nil)
     }
     
@@ -319,8 +320,10 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
     override func viewDidLayoutSubviews() {
            super.viewDidLayoutSubviews()
 
-           // Update the canvasView frame to match the scrollView contentSize
-           canvasView.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+        if (canvasView != nil){
+            // Update the canvasView frame to match the scrollView contentSize
+            canvasView.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+        }
        }
     
     
