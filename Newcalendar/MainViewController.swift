@@ -338,7 +338,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             
             cell.L1.text = col0[indexPath.row].replacingOccurrences(of: "?", with: "")
-            print(col0[indexPath.row])
+            //print(col0[indexPath.row])
             cell.M1.text = ""
             
             cell.S1.text = ""
@@ -430,105 +430,208 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 let ymd6 = ym6[indexPath.row].components(separatedBy: "/")
                 
                 
-                if ymd0.count == 3 {
+                //sun
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData0 = self.loadDrawingFromFile(filename: self.ym0[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym0[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData0 = self.loadDrawingFromFile(filename: filename) {
                             do {
                                 let drawing0 = try PKDrawing(data: loadedDrawingData0)
                                 let canvasView0 = PKCanvasView(frame: cell.V1.bounds)
+                                canvasView0.drawing = drawing0
+                                canvasView0.translatesAutoresizingMaskIntoConstraints = false
                                 cell.V1.addSubview(self.scaleDrawingToFitView(drawing: drawing0, canvasView: canvasView0))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView0.leadingAnchor.constraint(equalTo: cell.V1.leadingAnchor),
+                                    canvasView0.trailingAnchor.constraint(equalTo: cell.V1.trailingAnchor),
+                                    canvasView0.topAnchor.constraint(equalTo: cell.V1.topAnchor),
+                                    canvasView0.bottomAnchor.constraint(equalTo: cell.V1.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
                 
-                
+                //mon
                 if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: self.ym1[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym1[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
                                 let drawing1 = try PKDrawing(data: loadedDrawingData1)
                                 let canvasView1 = PKCanvasView(frame: cell.V2.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
                                 cell.V2.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V2.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V2.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V2.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V2.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
                 
-                if ymd2.count == 3 {
+                //tue
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData2 = self.loadDrawingFromFile(filename: self.ym2[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym2[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
-                                let drawing2 = try PKDrawing(data: loadedDrawingData2)
-                                let canvasView2 = PKCanvasView(frame: cell.V3.bounds)
-                                cell.V3.addSubview(self.scaleDrawingToFitView(drawing: drawing2, canvasView: canvasView2))
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V3.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
+                                cell.V3.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V3.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V3.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V3.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V3.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
-                
-                if ymd3.count == 3 {
+
+                //wed
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData3 = self.loadDrawingFromFile(filename: self.ym3[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym3[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
-                                let drawing3 = try PKDrawing(data: loadedDrawingData3)
-                                let canvasView3 = PKCanvasView(frame: cell.V4.bounds)
-                                cell.V4.addSubview(self.scaleDrawingToFitView(drawing: drawing3, canvasView: canvasView3))
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V4.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
+                                cell.V4.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V4.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V4.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V4.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V4.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
                 
-                if ymd4.count == 3 {
+                //thr
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData4 = self.loadDrawingFromFile(filename: self.ym4[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym4[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
-                                let drawing4 = try PKDrawing(data: loadedDrawingData4)
-                                let canvasView4 = PKCanvasView(frame: cell.V5.bounds)
-                                cell.V5.addSubview(self.scaleDrawingToFitView(drawing: drawing4, canvasView: canvasView4))
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V5.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
+                                cell.V5.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V5.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V5.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V5.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V5.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
                 
-                if ymd5.count == 3 {
+                //fri
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData5 = self.loadDrawingFromFile(filename: self.ym5[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym5[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
-                                let drawing5 = try PKDrawing(data: loadedDrawingData5)
-                                let canvasView5 = PKCanvasView(frame: cell.V6.bounds)
-                                cell.V6.addSubview(self.scaleDrawingToFitView(drawing: drawing5, canvasView: canvasView5))
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V6.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
+                                cell.V6.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V6.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V6.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V6.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V6.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
                 
-                if ymd6.count == 3 {
+                //sat
+                if ymd1.count == 3 {
                     DispatchQueue.main.async {
-                        if let loadedDrawingData6 = self.loadDrawingFromFile(filename: self.ym6[indexPath.row].replacingOccurrences(of: "/", with: "")) {
+                        let filename = self.ym6[indexPath.row].replacingOccurrences(of: "/", with: "")
+                        if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
                             do {
-                                let drawing6 = try PKDrawing(data: loadedDrawingData6)
-                                let canvasView6 = PKCanvasView(frame: cell.V7.bounds)
-                                cell.V7.addSubview(self.scaleDrawingToFitView(drawing: drawing6, canvasView: canvasView6))
+                                let drawing1 = try PKDrawing(data: loadedDrawingData1)
+                                let canvasView1 = PKCanvasView(frame: cell.V7.bounds)
+                                canvasView1.drawing = drawing1
+                                canvasView1.translatesAutoresizingMaskIntoConstraints = false
+                                cell.V7.addSubview(self.scaleDrawingToFitView(drawing: drawing1, canvasView: canvasView1))
+                                
+                                // Add constraints to fit the canvasView to the cell's bounds
+                                NSLayoutConstraint.activate([
+                                    canvasView1.leadingAnchor.constraint(equalTo: cell.V7.leadingAnchor),
+                                    canvasView1.trailingAnchor.constraint(equalTo: cell.V7.trailingAnchor),
+                                    canvasView1.topAnchor.constraint(equalTo: cell.V7.topAnchor),
+                                    canvasView1.bottomAnchor.constraint(equalTo: cell.V7.bottomAnchor)
+                                ])
+                                
                             } catch {
-                                print("Error creating drawing from data: \(error.localizedDescription)")
+                                //print("Error creating drawing from data: \(error.localizedDescription)")
                             }
+                        } else {
+                            //print("Error loading drawing data from file: \(filename)")
                         }
                     }
                 }
-                
                 
                 
             case InputType.keybord.rawValue:
@@ -956,7 +1059,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @objc func terminate(sender:UIButton){
-        print(sender.tag)
+        //print(sender.tag)
         for i in 0..<detailboardview.count{
             if detailboardview[i].tag == sender.tag{
                 detailboardview[i].removeFromSuperview()
@@ -1042,7 +1145,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func findTodaysRow()->Int{
         let todayStr = getToday().replacingOccurrences(of: "/0", with: "/")
-        print("todayStr",todayStr)
+        //print("todayStr",todayStr)
         for i in 0..<ym0.count{
             if ym0[i] == todayStr{
                 return i
@@ -1128,19 +1231,19 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //
     //       let delta =  scrollView.contentOffset.y
     //
-    //        print("delta",delta)
+    //        //print("delta",delta)
     //
     //        for i in 0..<detailboardview.count{
     //
     //            let original = detailboardview[i].center
     ////            detailboardview[i].center = CGPoint(x: original.x, y: 0.0 - delta)
-    //            print(original)
+    //            //print(original)
     //        }
     //
     //    }
     
     func save_text_action(receivedstr:String,bodytext:String) {
-        print("receivedstr",receivedstr)
+        //print("receivedstr",receivedstr)
         if text_location.contains(receivedstr){
             
             let whereitexists = text_location.index(of: receivedstr)
@@ -1161,7 +1264,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let export = Export()
         let jsoned = export.jsonExport(source: dict)
         if JSONSerialization.isValidJSONObject(jsoned) {
-            //print(jsoned) OK!
+            ////print(jsoned) OK!
             let temp = Export()
             temp.saveJsonFile(source: jsoned as! Dictionary<String, String>)
             // Done
@@ -1195,7 +1298,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         switch inputType {
         case 0:
             // Handle handwriting input
-            print("Handling handwriting input")
+            //print("Handling handwriting input")
             let id = ym[IP.row].replacingOccurrences(of: "/", with: "")
             if id.count > 0{
                 let target = storyboard!.instantiateViewController(withIdentifier: "pencilview") as! PencilController
@@ -1203,9 +1306,10 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 target.modalPresentationStyle = .fullScreen
                 present(target, animated: true, completion: nil)
             }
+            break
         case 1:
             // Handle text input
-            print("Handling text input")
+            //print("Handling text input")
             // Add further logic for text input here
             let id = ym[IP.row].replacingOccurrences(of: "/", with: "")
             for i in 0..<detailboardview.count{
@@ -1245,11 +1349,10 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             item1.view.layer.shadowOpacity=0.7
             item1.view.layer.shadowOffset = CGSize(width: 1, height: 1)
 //            item1.myTextView.becomeFirstResponder()
+            break
             
         default:
-            // Handle default case, assuming handwriting as default
-            print("Handling default case (assumed handwriting)")
-            // Add further logic for default case here
+            break
         }
     }
     

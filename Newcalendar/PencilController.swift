@@ -90,9 +90,38 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
 
     
     func saveData() {
+        if canvasView.drawing.bounds.isEmpty{
+         deleteDrawingFile(id: id)
+        }
+        
+        if !canvasView.drawing.bounds.isEmpty{
             let drawingData = canvasView.drawing.dataRepresentation()
             saveDrawingToFile(drawingData: drawingData)
         }
+    }
+    
+    func deleteDrawingFile(id: String) {
+        // Get the path to the Documents directory
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // Create a file URL
+        let filename = id + ".dat"
+        let fileURL = documentsDirectory.appendingPathComponent(filename)
+        
+        do {
+            // Check if the file exists
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                // Attempt to remove the file
+                try FileManager.default.removeItem(at: fileURL)
+                print("Drawing file deleted successfully at \(fileURL.path)")
+            } else {
+                print("File not found at \(fileURL.path)")
+            }
+        } catch {
+            print("Error deleting drawing file: \(error.localizedDescription)")
+        }
+    }
+
         
 
     func saveDrawingToFile(drawingData: Data) {
