@@ -83,7 +83,7 @@ class PencilController: UIViewController, PKCanvasViewDelegate,PKToolPickerObser
         toolPicker = PKToolPicker()
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(self)
-        configureCanvas()
+        //configureCanvas()
         canvasView.becomeFirstResponder()
         toolPicker.setVisible(true, forFirstResponder: canvasView)
     }

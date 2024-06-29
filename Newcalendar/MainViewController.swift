@@ -1301,6 +1301,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             //print("Handling handwriting input")
             let id = ym[IP.row].replacingOccurrences(of: "/", with: "")
             if id.count > 0{
+                self.view.subviews.forEach { $0.removeFromSuperview() }
                 let target = storyboard!.instantiateViewController(withIdentifier: "pencilview") as! PencilController
                 target.id = id
                 target.modalPresentationStyle = .fullScreen
