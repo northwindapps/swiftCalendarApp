@@ -110,6 +110,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : TableViewCellLS = myTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellLS
         
@@ -431,7 +432,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
                 
                 //sun
-                if ymd1.count == 3 {
+                if ymd0.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym0[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData0 = self.loadDrawingFromFile(filename: filename) {
@@ -489,7 +490,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
                 //tue
-                if ymd1.count == 3 {
+                if ymd2.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym2[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
@@ -518,7 +519,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
 
                 //wed
-                if ymd1.count == 3 {
+                if ymd3.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym3[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
@@ -547,7 +548,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
                 //thr
-                if ymd1.count == 3 {
+                if ymd4.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym4[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
@@ -576,7 +577,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
                 //fri
-                if ymd1.count == 3 {
+                if ymd5.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym5[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
@@ -605,7 +606,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
                 //sat
-                if ymd1.count == 3 {
+                if ymd6.count == 3 {
                     DispatchQueue.main.async {
                         let filename = self.ym6[indexPath.row].replacingOccurrences(of: "/", with: "")
                         if let loadedDrawingData1 = self.loadDrawingFromFile(filename: filename) {
@@ -690,6 +691,42 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            detectOffScreenIndexes()
+        }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        detectOffScreenIndexes()
+    }
+
+    func detectOffScreenIndexes() {
+        guard let visibleIndexPaths = myTable.indexPathsForVisibleRows else { return }
+        let totalRows = tableView(myTable, numberOfRowsInSection: 0)
+        var offScreenIndexes: [IndexPath] = []
+
+        for row in 0..<totalRows {
+            let indexPath = IndexPath(row: row, section: 0)
+            if !visibleIndexPaths.contains(indexPath) {
+                offScreenIndexes.append(indexPath)
+            }
+        }
+
+        // Remove subviews from off-screen cells
+        for indexPath in offScreenIndexes {
+            if let cell = myTable.cellForRow(at: indexPath) as? TableViewCellLS {
+                cell.V1.subviews.forEach { $0.removeFromSuperview() }
+                cell.V2.subviews.forEach { $0.removeFromSuperview() }
+                cell.V3.subviews.forEach { $0.removeFromSuperview() }
+                cell.V4.subviews.forEach { $0.removeFromSuperview() }
+                cell.V5.subviews.forEach { $0.removeFromSuperview() }
+                cell.V6.subviews.forEach { $0.removeFromSuperview() }
+                cell.V7.subviews.forEach { $0.removeFromSuperview() }
+            }
+        }
+
+        //print("Off-screen indexes: \(offScreenIndexes.map { $0.row })")
     }
     
     
