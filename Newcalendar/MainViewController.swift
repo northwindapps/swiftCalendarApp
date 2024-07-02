@@ -114,61 +114,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : TableViewCellLS = myTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellLS
         
-        cell.M1.numberOfLines = 0
-        cell.M1.lineBreakMode = .byWordWrapping
-        cell.M2.numberOfLines = 0
-        cell.M2.lineBreakMode = .byWordWrapping
-        cell.M3.numberOfLines = 0
-        cell.M3.lineBreakMode = .byWordWrapping
-        cell.M4.numberOfLines = 0
-        cell.M4.lineBreakMode = .byWordWrapping
-        cell.M5.numberOfLines = 0
-        cell.M5.lineBreakMode = .byWordWrapping
-        cell.M6.numberOfLines = 0
-        cell.M6.lineBreakMode = .byWordWrapping
-        cell.M7.numberOfLines = 0
-        cell.M7.lineBreakMode = .byWordWrapping
-        
-        cell.M1.textColor = UIColor.blue
-        cell.M2.textColor = UIColor.blue
-        cell.M3.textColor = UIColor.blue
-        cell.M4.textColor = UIColor.blue
-        cell.M5.textColor = UIColor.blue
-        cell.M6.textColor = UIColor.blue
-        cell.M7.textColor = UIColor.blue
-        
-        cell.M1.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M2.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M3.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M4.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M5.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M6.font = UIFont.systemFont(ofSize: 11.0)
-        cell.M7.font = UIFont.systemFont(ofSize: 11.0)
-        
-        
-        cell.M1.layer.zPosition = 1
-        cell.M2.layer.zPosition = 1
-        cell.M3.layer.zPosition = 1
-        cell.M4.layer.zPosition = 1
-        cell.M5.layer.zPosition = 1
-        cell.M6.layer.zPosition = 1
-        cell.M7.layer.zPosition = 1
-        
-        cell.M1.layer.borderWidth = 0.0
-        cell.M1.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M2.layer.borderWidth = 0.0
-        cell.M2.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M3.layer.borderWidth = 0.0
-        cell.M3.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M4.layer.borderWidth = 0.0
-        cell.M4.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M5.layer.borderWidth = 0.0
-        cell.M5.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M6.layer.borderWidth = 0.0
-        cell.M6.layer.borderColor = UIColor.systemGray.cgColor
-        cell.M7.layer.borderWidth = 0.0
-        cell.M7.layer.borderColor = UIColor.systemGray.cgColor
-
         
         cell.V1.layer.zPosition = 2
         cell.V2.layer.zPosition = 2
@@ -192,6 +137,21 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.V6.layer.borderColor = UIColor.systemGray.cgColor
         cell.V7.layer.borderWidth = 0.5
         cell.V7.layer.borderColor = UIColor.systemGray.cgColor
+        
+        cell.S1.layer.borderWidth = 0.5
+        cell.S1.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S2.layer.borderWidth = 0.5
+        cell.S2.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S3.layer.borderWidth = 0.5
+        cell.S3.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S4.layer.borderWidth = 0.5
+        cell.S4.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S5.layer.borderWidth = 0.5
+        cell.S5.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S6.layer.borderWidth = 0.5
+        cell.S6.layer.borderColor = UIColor.systemGray.cgColor
+        cell.S7.layer.borderWidth = 0.5
+        cell.S7.layer.borderColor = UIColor.systemGray.cgColor
        
 
         cell.S1.font = UIFont.systemFont(ofSize: 12.0)
@@ -222,46 +182,35 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.S1.backgroundColor = UIColor.clear
         cell.S1.textColor = UIColor.red
-        cell.M1.layer.cornerRadius = 0.0
-        cell.M1.backgroundColor = UIColor.white
+      
         
         cell.S2.backgroundColor = UIColor.clear
         cell.S2.textColor = UIColor.black
-        cell.M2.layer.cornerRadius = 0.0
-        cell.M2.backgroundColor = UIColor.white
-        
+       
         cell.S3.backgroundColor = UIColor.clear
         cell.S3.textColor = UIColor.black
-        cell.M3.layer.cornerRadius = 0.0
-        cell.M3.backgroundColor = UIColor.white
+       
         
         cell.S4.backgroundColor = UIColor.clear
         cell.S4.textColor = UIColor.black
-        cell.M4.layer.cornerRadius = 0.0
-        cell.M4.backgroundColor = UIColor.white
+       
         
         cell.S5.backgroundColor = UIColor.clear
         cell.S5.textColor = UIColor.black
-        cell.M5.layer.cornerRadius = 0.0
-        cell.M5.backgroundColor = UIColor.white
         
         cell.S6.backgroundColor = UIColor.clear
         cell.S6.textColor = UIColor.black
-        cell.M6.layer.cornerRadius = 0.0
-        cell.M6.backgroundColor = UIColor.white
+     
         
         cell.S7.backgroundColor = UIColor.clear
         cell.S7.textColor = UIColor.black
-        cell.M7.layer.cornerRadius = 0.0
-        cell.M7.backgroundColor = UIColor.white
-        
+       
         
         if ym0[indexPath.row] == today{
             cell.S1.backgroundColor = UIColor.clear
             cell.S1.textColor = UIColor.red
             cell.S1.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M1.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M1.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
+           
             
             
         }
@@ -270,9 +219,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S2.backgroundColor = UIColor.clear
             cell.S2.textColor = UIColor.black
             cell.S2.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M2.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M2.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
+           
             
         }
         
@@ -280,9 +227,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S3.backgroundColor = UIColor.clear
             cell.S3.textColor = UIColor.black
             cell.S3.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M3.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M3.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
             
         }
         
@@ -290,9 +234,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S4.backgroundColor = UIColor.clear
             cell.S4.textColor = UIColor.black
             cell.S4.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M4.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M4.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
-            
+          
             
         }
         
@@ -300,24 +242,20 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S5.backgroundColor = UIColor.clear
             cell.S5.textColor = UIColor.black
             cell.S5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M5.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M5.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
         }
         
         if ym5[indexPath.row] == today{
             cell.S6.backgroundColor = UIColor.clear
             cell.S6.textColor = UIColor.black
             cell.S6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M6.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M6.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
+           
         }
         
         if ym6[indexPath.row] == today{
             cell.S7.backgroundColor = UIColor.clear
             cell.S7.textColor = UIColor.black
             cell.S7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 0.5)
-            cell.M7.backgroundColor = UIColor(red: 129/255, green: 206/255, blue: 255/255, alpha: 1.0)
-            cell.M7.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 5)
+            
         }
         
         cell.L1.text = ""
@@ -340,19 +278,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             cell.L1.text = col0[indexPath.row].replacingOccurrences(of: "?", with: "")
             //print(col0[indexPath.row])
-            cell.M1.text = ""
+          
             
             cell.S1.text = ""
-            
-            
-            
-            cell.M2.text = ""
-            cell.M3.text = ""
-            cell.M4.text = ""
-            cell.M5.text = ""
-            cell.M6.text = ""
-            cell.M7.text = ""
-            
             cell.S2.text = ""
             cell.S3.text = ""
             cell.S4.text = ""
@@ -360,31 +288,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.S6.text = ""
             cell.S7.text = ""
             
-            cell.M1.layer.zPosition = 0
-            cell.M2.layer.zPosition = 0
-            cell.M3.layer.zPosition = 0
-            cell.M4.layer.zPosition = 0
-            cell.M5.layer.zPosition = 0
-            cell.M6.layer.zPosition = 0
-            cell.M7.layer.zPosition = 0
             cell.L1.layer.zPosition = 1
             cell.L1.textColor = UIColor.black
 
-            cell.M1.layer.borderWidth = 0.0
-            cell.M1.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M2.layer.borderWidth = 0.0
-            cell.M2.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M3.layer.borderWidth = 0.0
-            cell.M3.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M4.layer.borderWidth = 0.0
-            cell.M4.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M5.layer.borderWidth = 0.0
-            cell.M5.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M6.layer.borderWidth = 0.0
-            cell.M6.layer.borderColor = UIColor.systemGray.cgColor
-            cell.M7.layer.borderWidth = 0.0
-            cell.M7.layer.borderColor = UIColor.systemGray.cgColor
-            
             cell.clipsToBounds = false
             cell.layer.shadowOpacity=0.7
             cell.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -411,13 +317,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
         if col0[indexPath.row].first != "?"{
             //Main Content
-            cell.M1.text = ""
-            cell.M2.text = ""
-            cell.M3.text = ""
-            cell.M4.text = ""
-            cell.M5.text = ""
-            cell.M6.text = ""
-            cell.M7.text = ""
             cell.L1.layer.zPosition = 0
             
             switch input_type {
@@ -636,46 +535,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
                 
             case InputType.keybord.rawValue:
-                if text_location.contains(ym0[indexPath.row]) || text_locationTime.contains(ym0[indexPath.row]) {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym0[indexPath.row])
-                    cell.M1.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym1[indexPath.row]) || text_locationTime.contains(ym1[indexPath.row]) {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym1[indexPath.row])
-                    cell.M2.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym2[indexPath.row]) || text_locationTime.contains(ym2[indexPath.row]) {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym2[indexPath.row])
-                    cell.M3.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym3[indexPath.row]) || text_locationTime.contains(ym3[indexPath.row])  {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym3[indexPath.row])
-                    cell.M4.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym4[indexPath.row]) || text_locationTime.contains(ym4[indexPath.row])  {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym4[indexPath.row])
-                    cell.M5.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym5[indexPath.row]) || text_locationTime.contains(ym5[indexPath.row]) {
-                    
-                    let indexOfA = text_location.firstIndex(of: ym5[indexPath.row])
-                    cell.M6.text = text_content[indexOfA!]
-                }
-                
-                if text_location.contains(ym6[indexPath.row]) || text_locationTime.contains(ym6[indexPath.row])  {
-                    let indexOfA = text_location.firstIndex(of: ym6[indexPath.row])
-                    cell.M7.text = text_content[indexOfA!]
-                }
+                break
             default:
                 break
             }
@@ -994,6 +854,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @objc func bTT(){
         scrollToRow()
+        detectOffScreenIndexes()
     }
     
     func screenshot() -> UIImage{
@@ -1058,38 +919,38 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // save photo
 //        UIImageWriteToSavedPhotosAlbum(snapshot, nil, nil, nil)
         
-        if cell.M1.frame.contains(pointInCell){
+        if cell.V1.frame.contains(pointInCell){
             //switch handwriting or text
             tappedcol = 0
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym0)
         }
         
-        if cell.M2.frame.contains(pointInCell){
+        if cell.V2.frame.contains(pointInCell){
             tappedcol = 1
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym1)
         }
         
-        if cell.M3.frame.contains(pointInCell){
+        if cell.V3.frame.contains(pointInCell){
             tappedcol = 2
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym2)
         }
         
-        if cell.M4.frame.contains(pointInCell){
+        if cell.V4.frame.contains(pointInCell){
             tappedcol = 3
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym3)
         }
         
-        if cell.M5.frame.contains(pointInCell){
+        if cell.V5.frame.contains(pointInCell){
             tappedcol = 4
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym4)
         }
         
-        if cell.M6.frame.contains(pointInCell){
+        if cell.V6.frame.contains(pointInCell){
             tappedcol = 5
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym5)
         }
         
-        if cell.M7.frame.contains(pointInCell){
+        if cell.V7.frame.contains(pointInCell){
             tappedcol = 6
             handleInputType(inputType: input_type,IP: indexPath!,pointInCell: pointInCell,ym: ym6)
         }
@@ -1178,6 +1039,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         myTable.transform = initialTransform
         let idx = IndexPath(row: findTodaysRow(), section: 0)
         myTable.scrollToRow(at: idx, at: .middle, animated: true)
+        detectOffScreenIndexes()
     }
     
     func findTodaysRow()->Int{

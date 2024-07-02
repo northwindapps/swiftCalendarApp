@@ -21,13 +21,6 @@ class TableViewCellLS: UITableViewCell {
     @IBOutlet weak var S6: UILabel!
     @IBOutlet weak var S7: UILabel!
     
-    @IBOutlet weak var M1: UIMarginLabel!
-    @IBOutlet weak var M2: UIMarginLabel!
-    @IBOutlet weak var M3: UIMarginLabel!
-    @IBOutlet weak var M4: UIMarginLabel!
-    @IBOutlet weak var M5: UIMarginLabel!
-    @IBOutlet weak var M6: UIMarginLabel!
-    @IBOutlet weak var M7: UIMarginLabel!
     
     @IBOutlet weak var V1: UIView!
     @IBOutlet weak var V2: UIView!
@@ -51,20 +44,7 @@ class TableViewCellLS: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        M1.leftInset = 2
-        M1.rightInset = 2
-        M2.leftInset = 2
-        M2.rightInset = 2
-        M3.leftInset = 2
-        M3.rightInset = 2
-        M4.leftInset = 2
-        M4.rightInset = 2
-        M5.leftInset = 2
-        M5.rightInset = 2
-        M6.leftInset = 2
-        M6.rightInset = 2
-        M7.leftInset = 2
-        M7.rightInset = 2
+        
     }
 
 }
